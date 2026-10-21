@@ -1,5 +1,5 @@
 # Maintenance helper: Actions → "Izpētīt Eurostat datu kopas" → Run workflow, enter dataset codes.
-# Prints each dataset's dimensions and codes in the log (useful when adding a new indicator).
+# Saves each dataset's dimensions and codes to izpete/rezultats.txt (useful when adding a new indicator).
 name: Izpētīt Eurostat datu kopas
 
 on:
@@ -10,6 +10,9 @@ on:
         required: true
         default: "une_rt_m"
 
+permissions:
+  contents: write
+
 jobs:
   izpete:
     runs-on: ubuntu-latest
@@ -19,4 +22,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - run: python scripts/izpete.py ${{ github.event.inputs.datasets }}
+      - run: |
+          mkdir -p izpete
+          python scripts/izpete.py ${{ github.event.inputs.datasets }} | tee izpete/rezultats.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add izpete
+          git diff --cached --quiet || (git commit -m "Datu kopu izpētes rezultāts" && git push)
