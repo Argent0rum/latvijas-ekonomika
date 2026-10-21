@@ -1,0 +1,267 @@
+
+=== namq_10_gdp ===
+  label: Gross domestic product (GDP) and main components (output, expenditure and income) - quarterly data
+  updated: 2026-10-20T23:00:00+0200 | values: 1916
+  freq (1): Q=Quarterly
+  unit (34): CLV_I20=Chain linked volumes, index 2020=100, CLV_I15=Chain linked volumes, index 2015=100, CLV_I10=Chain linked volumes, index 2010=100, CLV_I05=Chain linked volumes, index 2005=100, PC_GDP=Percentage of gross domestic product (GDP), CP_MEUR=Current prices, million euro, CP_MNAC=Current prices, million units of national cur, CLV20_MEUR=Chain linked volumes (2020), million euro, CLV15_MEUR=Chain linked volumes (2015), million euro, CLV10_MEUR=Chain linked volumes (2010), million euro, CLV05_MEUR=Chain linked volumes (2005), million euro, CLV20_MNAC=Chain linked volumes (2020), million units of, CLV15_MNAC=Chain linked volumes (2015), million units of, CLV10_MNAC=Chain linked volumes (2010), million units of, CLV05_MNAC=Chain linked volumes (2005), million units of, CLV_PCH_PRE=Chain linked volumes, percentage change on pr, CLV_PCH_SM=Chain linked volumes, percentage change compa, CLV_PCH_ANN=Chain linked volumes, annualized percentage c, PYP_MEUR=Previous year prices, million euro, PYP_MNAC=Previous year prices, million units of nation, CON_PPCH_PRE=Contribution to GDP growth, percentage point , CON_PPCH_SM=Contribution to GDP growth, percentage point , PD20_EUR=Price index (implicit deflator), 2020=100, eu, PD15_EUR=Price index (implicit deflator), 2015=100, eu, PD10_EUR=Price index (implicit deflator), 2010=100, eu, PD05_EUR=Price index (implicit deflator), 2005=100, eu, PD20_NAC=Price index (implicit deflator), 2020=100, na, PD15_NAC=Price index (implicit deflator), 2015=100, na, PD10_NAC=Price index (implicit deflator), 2010=100, na, PD05_NAC=Price index (implicit deflator), 2005=100, na, PD_PCH_PRE_EUR=Price index (implicit deflator), percentage c, PD_PCH_PRE_NAC=Price index (implicit deflator), percentage c, PD_PCH_SM_EUR=Price index (implicit deflator), percentage c, PD_PCH_SM_NAC=Price index (implicit deflator), percentage c
+  s_adj (4): NSA=Unadjusted data (i.e. neither seasonally adju, SA=Seasonally adjusted data, not calendar adjust, CA=Calendar adjusted data, not seasonally adjust, SCA=Seasonally and calendar adjusted data
+  na_item (39): B1G=Value added, gross, B1GQ=Gross domestic product at market prices, B2A3G=Operating surplus and mixed income, gross, P3_P5=Final consumption expenditure and gross capit, P3_P6=Final consumption expenditure, gross capital , P3_S13=Final consumption expenditure of general gove, P3=Final consumption expenditure, P31_S13=Individual consumption expenditure of general, P31_S14=Final consumption expenditure of household, P31_S14_S15=Household and NPISH final consumption expendi, P31_S15=Final consumption expenditure of NPISH, P32_S13=Collective consumption expenditure of general, P41=Actual individual consumption, P5G=Gross capital formation, P51G=Gross fixed capital formation, P52_P53=Changes in inventories and acquisitions less , P52=Changes in inventories, P53=Acquisitions less disposals of valuables, P6=Exports of goods and services, P6X7=Exports less imports of goods and services, P61=Exports of goods, P61X71=Exports less imports of goods, P62=Exports of services, P62X72=Exports less imports of services, P7=Imports of goods and services, P71=Imports of goods, P72=Imports of services, D1=Compensation of employees, D11=Wages and salaries, D12=Employers' social contributions, D2=Taxes on production and imports, D2X3=Taxes on production and imports less subsidie, D21=Taxes on products, D21X31=Taxes less subsidies on products, D3=Subsidies, D31=Subsidies on products, YA0=Statistical discrepancy (expenditure approach, YA1=Statistical discrepancy (production approach), YA2=Statistical discrepancy (income approach)
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== nama_10_gdp ===
+  label: Gross domestic product (GDP) and main components (output, expenditure and income) - annual data
+  updated: 2026-10-21T11:00:00+0200 | values: 814
+  freq (1): A=Annual
+  unit (32): CLV_I20=Chain linked volumes, index 2020=100, CLV_I15=Chain linked volumes, index 2015=100, CLV_I10=Chain linked volumes, index 2010=100, CLV_I05=Chain linked volumes, index 2005=100, PC_GDP=Percentage of gross domestic product (GDP), PC_EU27_2020_MEUR_CP=Percentage of EU27 (from 2020) total (based o, PC_EU27_2020_MPPS_CP=Percentage of EU27 (from 2020) total (based o, CP_MEUR=Current prices, million euro, CP_MNAC=Current prices, million units of national cur, CP_MPPS_EU27_2020=Current prices, million purchasing power stan, CLV20_MEUR=Chain linked volumes (2020), million euro, CLV15_MEUR=Chain linked volumes (2015), million euro, CLV10_MEUR=Chain linked volumes (2010), million euro, CLV05_MEUR=Chain linked volumes (2005), million euro, CLV20_MNAC=Chain linked volumes (2020), million units of, CLV15_MNAC=Chain linked volumes (2015), million units of, CLV10_MNAC=Chain linked volumes (2010), million units of, CLV05_MNAC=Chain linked volumes (2005), million units of, CLV_PCH_PRE=Chain linked volumes, percentage change on pr, PYP_MEUR=Previous year prices, million euro, PYP_MNAC=Previous year prices, million units of nation, CON_PPCH_PRE=Contribution to GDP growth, percentage point , PD20_EUR=Price index (implicit deflator), 2020=100, eu, PD15_EUR=Price index (implicit deflator), 2015=100, eu, PD10_EUR=Price index (implicit deflator), 2010=100, eu, PD05_EUR=Price index (implicit deflator), 2005=100, eu, PD20_NAC=Price index (implicit deflator), 2020=100, na, PD15_NAC=Price index (implicit deflator), 2015=100, na, PD10_NAC=Price index (implicit deflator), 2010=100, na, PD05_NAC=Price index (implicit deflator), 2005=100, na, PD_PCH_PRE_EUR=Price index (implicit deflator), percentage c, PD_PCH_PRE_NAC=Price index (implicit deflator), percentage c
+  na_item (39): B1G=Value added, gross, B1GQ=Gross domestic product at market prices, B2A3G=Operating surplus and mixed income, gross, P3_P5=Final consumption expenditure and gross capit, P3_P6=Final consumption expenditure, gross capital , P3_S13=Final consumption expenditure of general gove, P3=Final consumption expenditure, P31_S13=Individual consumption expenditure of general, P31_S14=Final consumption expenditure of household, P31_S14_S15=Household and NPISH final consumption expendi, P31_S15=Final consumption expenditure of NPISH, P32_S13=Collective consumption expenditure of general, P41=Actual individual consumption, P5G=Gross capital formation, P51G=Gross fixed capital formation, P52_P53=Changes in inventories and acquisitions less , P52=Changes in inventories, P53=Acquisitions less disposals of valuables, P6=Exports of goods and services, P6X7=Exports less imports of goods and services, P61=Exports of goods, P61X71=Exports less imports of goods, P62=Exports of services, P62X72=Exports less imports of services, P7=Imports of goods and services, P71=Imports of goods, P72=Imports of services, D1=Compensation of employees, D11=Wages and salaries, D12=Employers' social contributions, D2=Taxes on production and imports, D2X3=Taxes on production and imports less subsidie, D21=Taxes on products, D21X31=Taxes less subsidies on products, D3=Subsidies, D31=Subsidies on products, YA0=Statistical discrepancy (expenditure approach, YA1=Statistical discrepancy (production approach), YA2=Statistical discrepancy (income approach)
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== nama_10_pc ===
+  label: Gross domestic product (GDP) and main components per capita - annual data
+  updated: 2026-10-21T11:00:00+0200 | values: 108
+  freq (1): A=Annual
+  unit (12): PC_EU27_2020_HAB_MEUR_CP=Percentage of EU27 (from 2020) total per capi, PC_EU27_2020_HAB_MPPS_CP=Percentage of EU27 (from 2020) total per capi, CP_EUR_HAB=Current prices, euro per capita, CP_NAC_HAB=Current prices, units of national currency pe, CP_PPS_EU27_2020_HAB=Current prices, purchasing power standard (PP, CLV_I20_HAB=Chain linked volumes, Index 2020=100, per cap, CLV_I15_HAB=Chain linked volumes, Index 2015=100, per cap, CLV_I10_HAB=Chain linked volumes, Index 2010=100, per cap, CLV20_EUR_HAB=Chain linked volumes (2020), euro per capita, CLV15_EUR_HAB=Chain linked volumes (2015), euro per capita, CLV10_EUR_HAB=Chain linked volumes (2010), euro per capita, CLV_PCH_PRE_HAB=Chain linked volumes, percentage change on pr
+  na_item (9): B1GQ=Gross domestic product at market prices, P3_S13=Final consumption expenditure of general gove, P3=Final consumption expenditure, P31_S13=Individual consumption expenditure of general, P31_S14=Final consumption expenditure of household, P31_S14_S15=Household and NPISH final consumption expendi, P31_S15=Final consumption expenditure of NPISH, P32_S13=Collective consumption expenditure of general, P41=Actual individual consumption
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== prc_ppp_ind ===
+  label: Purchasing power parities, price level indices, nominal and real expenditures by analytical categories - based on COICOP 1999
+  updated: 2025-07-10T11:00:00+0200 | values: 445
+  freq (1): A=Annual
+  na_item (24): PPP_EU27_2020=Purchasing power parities (EU27_2020=1), PPP_EU28=Purchasing power parities (EU28=1), PPP_EU27_2007=Purchasing power parities (EU27_2007=1), PPP_EU15=Purchasing power parities (EU15=1), PLI_EU27_2020=Price level indices (EU27_2020=100), PLI_EU28=Price level indices (EU28=100), PLI_EU27_2007=Price level indices (EU27_2007=100), PLI_EU15=Price level indices (EU15=100), EXP_NAC=Nominal expenditure in national currency, EXP_NAC_PC_GDP=Nominal expenditure as a percentage of GDP (G, EXP_EUR=Nominal expenditure (in euro), EXP_EUR_HAB=Nominal expenditure per inhabitant (in euro), EXP_PPS_EU27_2020=Real expenditure (in PPS_EU27_2020), EXP_PPS_EU28=Real expenditure (in PPS_EU28), EXP_PPS_EU27_2007=Real expenditure (in PPS_EU27_2007), EXP_PPS_EU15=Real expenditure (in PPS_EU15), EXP_PPS_EU27_2020_HAB=Real expenditure per capita (in PPS_EU27_2020, EXP_PPS_EU28_HAB=Real expenditure per capita (in PPS_EU28), EXP_PPS_EU27_2007_HAB=Real expenditure per capita (in PPS_EU27_2007, EXP_PPS_EU15_HAB=Real expenditure per capita (in PPS_EU15), VI_PPS_EU27_2020_HAB=Volume indices of real expenditure per capita, VI_PPS_EU28_HAB=Volume indices of real expenditure per capita, VI_PPS_EU27_2007_HAB=Volume indices of real expenditure per capita, VI_PPS_EU15_HAB=Volume indices of real expenditure per capita
+  ppp_cat (61): GDP=Gross domestic product, A01=Actual individual consumption, A0101=Food and non-alcoholic beverages, A010101=Food, A01010101=Bread and cereals, A01010102=Meat, A01010103=Fish, A01010104=Milk, cheese and eggs, A01010105=Oils and fats, A01010106=Fruits, vegetables, potatoes, A01010199=Other food, A010102=Non-alcoholic beverages, A0102=Alcoholic beverages, tobacco and narcotics, A010201=Alcoholic beverages, A010202=Tobacco, A0103=Clothing and footwear, A010301=Clothing, A010302=Footwear, A0104=Housing, water, electricity, gas and other fu, A010405=Electricity, gas and other fuels, A0105=Household furnishings, equipment and maintena, A010501=Furniture and furnishings, carpets and other , A010503=Households appliances, A0106=Health, A010603=Hospital services, A0107=Transport, A010701=Personal transport equipment, A010703=Transport services, A0108=Communication, A0109=Recreation and culture, A010901=Audio-visual, photographic and information pr, A0110=Education, A0111=Restaurants and hotels, A0112=Miscellaneous goods and services, A04=Actual collective consumption, A05=Gross fixed capital formation, A0501=Machinery and equipment, A050101=Fabricated metal products and equipment (exce, A050102=Electrical and optical equipment, A050103=Transport equipment …
+  geo (1): LV=Latvia
+  time (1): 2024=2024
+
+=== prc_hicp_manr ===
+  label: HICP - monthly data (annual rate of change) (1997-2025)
+  updated: 2026-02-06T23:00:00+0100 | values: 346
+  freq (1): M=Monthly
+  unit (1): RCH_A=Annual rate of change
+  coicop (467): CP00=All-items HICP, CP01=Food and non-alcoholic beverages, CP011=Food, CP0111=Bread and cereals, CP01111=Rice, CP01112=Flours and other cereals, CP01113=Bread, CP01114=Other bakery products, CP01115=Pizza and quiche, CP01116=Pasta products and couscous, CP01117=Breakfast cereals, CP01118=Other cereal products, CP0112=Meat, CP01121=Beef and veal, CP01122=Pork, CP01123=Lamb and goat, CP01124=Poultry, CP01125=Other meats, CP01126=Edible offal, CP01127=Dried, salted or smoked meat, CP01128=Other meat preparations, CP0113=Fish and seafood, CP01131=Fresh or chilled fish, CP01132=Frozen fish, CP01133=Fresh or chilled seafood, CP01134=Frozen seafood, CP01135=Dried, smoked or salted fish and seafood, CP01136=Other preserved or processed fish and seafood, CP0114=Milk, cheese and eggs, CP01141=Fresh whole milk, CP01142=Fresh low fat milk, CP01143=Preserved milk, CP01144=Yoghurt, CP01145=Cheese and curd, CP01146=Other milk products, CP01147=Eggs, CP0115=Oils and fats, CP01151=Butter, CP01152=Margarine and other vegetable fats, CP01153=Olive oil …
+  geo (1): LV=Latvia
+  time (1): 2025-12=2025-12
+
+=== prc_hicp_minr ===
+  label: Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, monthly data
+  updated: 2026-10-16T23:00:00+0200 | values: 2077
+  freq (1): M=Monthly
+  unit (5): I25=Index, 2025=100, I15=Index, 2015=100, RCH_M=Monthly rate of change, RCH_A=Annual rate of change, RCH_MV12MAVR=Moving 12 months average rate of change
+  coicop18 (555): TOTAL=Total, CP01=Food and non-alcoholic beverages, CP011=Food, CP0111=Cereals and cereal products (ND), CP01111=Cereals (ND), CP01112=Flour of cereals (ND), CP01113=Bread and bakery products (ND), CP011131=Bread, CP011139=Other bakery products, CP01114=Breakfast cereals (ND), CP01115=Macaroni, noodles, couscous and similar pasta, CP01119=Other milled cereal and grain products (ND), CP0112=Live animals, and meat and other parts of sla, CP01121=Live land animals (ND), CP01122=Meat, fresh, chilled or frozen (ND), CP011221=Meat of bovine animals, fresh, chilled or fro, CP011222=Meat of pigs, fresh, chilled or frozen, CP011223=Meat of goats, lambs and sheep, fresh, chille, CP011224=Meat of poultry, fresh, chilled or frozen, CP011225=Meat of hares and rabbits, fresh, chilled or , CP011226=Meat of horses and other equines, fresh, chil, CP011229=Other meat, fresh, chilled or frozen, CP01123=Meat, dried, salted, in brine or smoked (ND), CP01124=Offal, blood and other parts of slaughtered a, CP01125=Preparations of meat, offal, blood and other , CP0113=Fish and other seafood (ND), CP01131=Fish, live, fresh, chilled or frozen (ND), CP01132=Fish, dried, salted, in brine or smoked (ND), CP01133=Fish preparations (ND), CP01134=Other seafood, live, fresh, chilled or frozen, CP01135=Other seafood, dried, salted, in brine or smo, CP01136=Other seafood preparations (ND), CP01137=Livers, roes and other offal of fish and of o, CP0114=Milk, other dairy products and eggs (ND), CP01141=Raw and whole milk (ND), CP01142=Skimmed milk (ND), CP01143=Other milk and cream (ND), CP01144=Non-animal milk (ND), CP01145=Cheese (ND), CP01146=Yoghurt and similar products (ND) …
+  geo (1): LV=Latvia
+  time (1): 2026-09=2026-09
+
+=== prc_hicp_mmor ===
+  label: HICP - monthly data (monthly rate of change) (1996-2025)
+  updated: 2026-02-06T23:00:00+0100 | values: 354
+  freq (1): M=Monthly
+  unit (1): RCH_M=Monthly rate of change
+  coicop (467): CP00=All-items HICP, CP01=Food and non-alcoholic beverages, CP011=Food, CP0111=Bread and cereals, CP01111=Rice, CP01112=Flours and other cereals, CP01113=Bread, CP01114=Other bakery products, CP01115=Pizza and quiche, CP01116=Pasta products and couscous, CP01117=Breakfast cereals, CP01118=Other cereal products, CP0112=Meat, CP01121=Beef and veal, CP01122=Pork, CP01123=Lamb and goat, CP01124=Poultry, CP01125=Other meats, CP01126=Edible offal, CP01127=Dried, salted or smoked meat, CP01128=Other meat preparations, CP0113=Fish and seafood, CP01131=Fresh or chilled fish, CP01132=Frozen fish, CP01133=Fresh or chilled seafood, CP01134=Frozen seafood, CP01135=Dried, smoked or salted fish and seafood, CP01136=Other preserved or processed fish and seafood, CP0114=Milk, cheese and eggs, CP01141=Fresh whole milk, CP01142=Fresh low fat milk, CP01143=Preserved milk, CP01144=Yoghurt, CP01145=Cheese and curd, CP01146=Other milk products, CP01147=Eggs, CP0115=Oils and fats, CP01151=Butter, CP01152=Margarine and other vegetable fats, CP01153=Olive oil …
+  geo (1): LV=Latvia
+  time (1): 2025-12=2025-12
+
+=== prc_hicp_ainr ===
+  label: Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, annual data
+  updated: 2026-09-17T11:00:00+0200 | values: 828
+  freq (1): A=Annual
+  unit (4): INX_A_AVG=Annual average index, RCH_A_AVG=Annual average rate of change, CID_EA21=Core inflation differential vis-à-vis the eur, CID_EA20=Core inflation differential vis-à-vis the eur
+  coicop18 (553): TOTAL=Total, CP01=Food and non-alcoholic beverages, CP011=Food, CP0111=Cereals and cereal products (ND), CP01111=Cereals (ND), CP01112=Flour of cereals (ND), CP01113=Bread and bakery products (ND), CP011131=Bread, CP011139=Other bakery products, CP01114=Breakfast cereals (ND), CP01115=Macaroni, noodles, couscous and similar pasta, CP01119=Other milled cereal and grain products (ND), CP0112=Live animals, and meat and other parts of sla, CP01121=Live land animals (ND), CP01122=Meat, fresh, chilled or frozen (ND), CP011221=Meat of bovine animals, fresh, chilled or fro, CP011222=Meat of pigs, fresh, chilled or frozen, CP011223=Meat of goats, lambs and sheep, fresh, chille, CP011224=Meat of poultry, fresh, chilled or frozen, CP011225=Meat of hares and rabbits, fresh, chilled or , CP011226=Meat of horses and other equines, fresh, chil, CP011229=Other meat, fresh, chilled or frozen, CP01123=Meat, dried, salted, in brine or smoked (ND), CP01124=Offal, blood and other parts of slaughtered a, CP01125=Preparations of meat, offal, blood and other , CP0113=Fish and other seafood (ND), CP01131=Fish, live, fresh, chilled or frozen (ND), CP01132=Fish, dried, salted, in brine or smoked (ND), CP01133=Fish preparations (ND), CP01134=Other seafood, live, fresh, chilled or frozen, CP01135=Other seafood, dried, salted, in brine or smo, CP01136=Other seafood preparations (ND), CP01137=Livers, roes and other offal of fish and of o, CP0114=Milk, other dairy products and eggs (ND), CP01141=Raw and whole milk (ND), CP01142=Skimmed milk (ND), CP01143=Other milk and cream (ND), CP01144=Non-animal milk (ND), CP01145=Cheese (ND), CP01146=Yoghurt and similar products (ND) …
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== une_rt_m ===
+  label: Unemployment by sex and age - monthly data
+  updated: 2026-10-21T11:00:00+0200 | values: 0
+  freq (1): M=Monthly
+  s_adj (3): NSA=Unadjusted data (i.e. neither seasonally adju, SA=Seasonally adjusted data, not calendar adjust, TC=Trend cycle data
+  age (3): TOTAL=Total, Y_LT25=Less than 25 years, Y25-74=From 25 to 74 years
+  unit (2): THS_PER=Thousand persons, PC_ACT=Percentage of population in the labour force
+  sex (3): T=Total, M=Males, F=Females
+  geo (1): LV=Latvia
+  time (1): 2026-09=2026-09
+
+=== lfsi_emp_a ===
+  label: Employment and labour force by sex and age - annual data
+  updated: 2026-09-10T23:00:00+0200 | values: 72
+  freq (1): A=Annual
+  indic_em (2): ACT=Persons in the labour force, EMP_LFS=Total employment (resident population concept
+  sex (3): T=Total, M=Males, F=Females
+  age (6): Y15-24=From 15 to 24 years, Y15-29=From 15 to 29 years, Y15-64=From 15 to 64 years, Y20-64=From 20 to 64 years, Y25-54=From 25 to 54 years, Y55-64=From 55 to 64 years
+  unit (2): THS_PER=Thousand persons, PC_POP=Percentage of total population
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== lfsi_emp_q ===
+  label: Employment and labour force by sex and age - quarterly data
+  updated: 2026-09-10T23:00:00+0200 | values: 252
+  freq (1): Q=Quarterly
+  indic_em (2): ACT=Persons in the labour force, EMP_LFS=Total employment (resident population concept
+  s_adj (3): NSA=Unadjusted data (i.e. neither seasonally adju, SA=Seasonally adjusted data, not calendar adjust, TC=Trend cycle data
+  sex (3): T=Total, M=Males, F=Females
+  age (7): Y15-24=From 15 to 24 years, Y15-29=From 15 to 29 years, Y15-64=From 15 to 64 years, Y15-74=From 15 to 74 years, Y20-64=From 20 to 64 years, Y25-54=From 25 to 54 years, Y55-64=From 55 to 64 years
+  unit (2): THS_PER=Thousand persons, PC_POP=Percentage of total population
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== earn_nt_netft ===
+  label: Annual net earnings of a full-time single worker without children earning an average wage
+  updated: 2026-10-19T11:00:00+0200 | values: 4
+  freq (1): A=Annual
+  statinfo (2): AVG_3Y=Three-year average, VAL_A=Annual value
+  unit (2): PPS=Purchasing power standard (PPS), PCH_RV=Percentage change, real values
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== earn_mw_cur ===
+  label: Monthly minimum wages - bi-annual data
+  updated: 2026-07-31T11:00:00+0200 | values: 3
+  freq (1): S=Half-yearly, semesterly
+  currency (3): EUR=Euro, PPS=Purchasing Power Standard, NAC=National currency
+  geo (1): LV=Latvia
+  time (1): 2026-S2=2026-S2
+
+=== lc_lci_r2_q ===
+  label: Labour cost index by NACE Rev. 2 activity - nominal value, quarterly data
+  updated: 2026-09-16T11:00:00+0200 | values: 936
+  freq (1): Q=Quarterly
+  s_adj (3): NSA=Unadjusted data (i.e. neither seasonally adju, CA=Calendar adjusted data, not seasonally adjust, SCA=Seasonally and calendar adjusted data
+  unit (3): I20=Index, 2020=100, PCH_PRE=Percentage change on previous period, PCH_SM=Percentage change compared to same period in 
+  nace_r2 (26): B-S=Industry, construction and services (except a, B-N=Business economy, B-F=Industry and construction, B-E=Industry (except construction), B=Mining and quarrying, C=Manufacturing, D=Electricity, gas, steam and air conditioning , E=Water supply; sewerage, waste management and , F=Construction, G-N=Services of the business economy, G-J=Wholesale and retail trade; transport; accomm, G=Wholesale and retail trade; repair of motor v, H=Transportation and storage, I=Accommodation and food service activities, J=Information and communication, K-N=Financial and insurance activities; real esta, K=Financial and insurance activities, L=Real estate activities, M=Professional, scientific and technical activi, N=Administrative and support service activities, O-S=Public administration and defence; compulsory, O=Public administration and defence; compulsory, P=Education, Q=Human health and social work activities, R=Arts, entertainment and recreation, S=Other service activities
+  lcstruct (4): D1_D4_MD5=Labour cost for LCI (compensation of employee, D1_D4_MD5_XB=Labour cost for LCI excluding bonuses, D11=Wages and salaries (total), D12_D4_MD5=Labour costs other than wages and salaries
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== prc_hpi_q ===
+  label: House price index - quarterly data
+  updated: 2026-10-01T11:00:00+0200 | values: 12
+  freq (1): Q=Quarterly
+  purchase (3): TOTAL=Total, DW_NEW=Purchases of newly built dwellings, DW_EXST=Purchases of existing dwellings
+  unit (4): I15_Q=Quarterly index, 2015=100, I25_Q=Quarterly index, 2025=100, RCH_Q=Quarterly rate of change, RCH_A=Annual rate of change
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== gov_10dd_edpt1 ===
+  label: Government deficit/surplus, debt and associated data
+  updated: 2026-10-21T11:00:00+0200 | values: 72
+  freq (1): A=Annual
+  unit (3): MIO_EUR=Million euro, MIO_NAC=Million units of national currency, PC_GDP=Percentage of gross domestic product (GDP)
+  sector (6): S1=Total economy, S13=General government, S1311=Central government, S1312=State government, S1313=Local government, S1314=Social security funds
+  na_item (18): B1GQ=Gross domestic product at market prices, B5GQ=Gross national income at market prices, B9=Net lending (+)/net borrowing (-), P51G=Gross fixed capital formation, D41PAY=Interest, expenditure, IGL_F4_EA21=Intergovernmental lending within EA21 (from 2, IGL_F4_EA20=Intergovernmental lending within EA20 (2023-2, IGL_F4_EA19=Intergovernmental lending within EA19 (2015-2, IGL_F4_EU27_2020=Intergovernmental lending within EU27 (from 2, GD=Government consolidated gross debt, GD_F2=Government consolidated gross debt at face va, GD_F3=Government consolidated gross debt at face va, GD_F31=Government consolidated gross debt at face va, GD_F32=Government consolidated gross debt at face va, GD_F4=Government consolidated gross debt at face va, GD_F41=Government consolidated gross debt at face va, GD_F42=Government consolidated gross debt at face va, AF_81L=Trade credits and advances - liabilities
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== gov_10q_ggdebt ===
+  label: Quarterly government debt
+  updated: 2026-10-21T11:00:00+0200 | values: 156
+  freq (1): Q=Quarterly
+  na_item (20): F2=Currency and deposits, F21=Currency, F22_F29=Transferable deposits; other deposits, F3=Debt securities, F31=Short-term debt securities, F32=Long-term debt securities, F4=Loans, F41=Short-term - loans, F42=Long-term - loans, IGL_F4_EA21=Intergovernmental lending within EA21 (from 2, IGL_F4_EA20=Intergovernmental lending within EA20 (2023-2, IGL_F4_EA19=Intergovernmental lending within EA19 (2015-2, IGL_F4_EU27_2020=Intergovernmental lending within EU27 (from 2, GD=Government consolidated gross debt, GD_NAC=General government gross debt, of which in na, GD_FOR=General government gross debt, of which in fo, GD_S1=General government gross debt, of which domes, GD_S2=General government gross debt, of which non-d, GD_LL=General government gross debt, long-term orig, GD_TS=General government gross debt, short-term rem
+  sector (8): S11001=Public non-financial corporations, S13=General government, S1311=Central government, S13111=Budgetary central government, S13112=Central government other than budgetary centr, S1312=State government, S1313=Local government, S1314=Social security funds
+  unit (4): MIO_EUR=Million euro, MIO_NAC=Million units of national currency, PC_GDP=Percentage of gross domestic product (GDP), PC_TOT=Percentage of total
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== bop_gdp6_q ===
+  label: Main Balance of Payments and International Investment Position items as share of GDP (BPM6)
+  updated: 2026-10-02T11:00:00+0200 | values: 109
+  freq (2): Q=Quarterly, A=Annual
+  unit (2): PC_GDP=Percentage of gross domestic product (GDP), PC_GDP_3Y=Percentage of GDP - three-year average
+  s_adj (2): NSA=Unadjusted data (i.e. neither seasonally adju, SCA=Seasonally and calendar adjusted data
+  bop_item (15): CA=Current account, CKA=Current plus capital account (balance = net l, GS=Goods and services, G=Goods, S=Services, S_X_CG=Services excluding transport and financial se, IN1=Primary income, IN2=Secondary income, KA=Capital account, FA=Financial account, FA__D__F=Financial account; direct investment, FA__P__F=Financial account; portfolio investment, FA__TXR__F=Financial account excluding reserve assets, FA__FNED=Net external debt, FA__NENDI=Net international investment position excludi
+  stk_flow (12): CRE_DEB_AVG=Average of credits and debits, CRE_DEB_SUM=Sum of credits and debits, CRE=Credit, DEB=Debit, NET=Net, ASS=Assets, LIAB=Liabilities, BAL=Balance, A_LE=Assets - positions at the end of period, L_LE=Liabilities - positions at the end of period, N_LE=Net positions at the end of period, NE_LE=Net liabilities (liabilities minus assets)
+  partner (8): EU27_2020=European Union - 27 countries (from 2020), EU28=European Union - 28 countries (2013-2020), EXT_EU27_2020=Extra-EU27 (from 2020), EXT_EU28=Extra-EU28 (2013-2020), EXT_EA21=Extra-euro area - 21 countries (from 2026), EXT_EA20=Extra-euro area - 20 countries (2023-2025), EXT_EA19=Extra-euro area - 19 countries (2015-2022), WRL_REST=Rest of the world
+  geo (1): LV=Latvia
+  time (1): 2026-Q2=2026-Q2
+
+=== sts_trtu_m ===
+  label: Turnover and volume of sales in wholesale and retail trade - monthly data
+  updated: 2026-10-21T11:00:00+0200 | values: 60
+  freq (1): M=Monthly
+  indic_bt (2): VOL_SLS=Volume of sales, NETTUR=Net turnover
+  nace_r2 (38): G=Wholesale and retail trade; repair of motor v, G45=Wholesale and retail trade and repair of moto, G45_X_G452=Sale of motor vehicles; sale and repair of mo, G451=Sale of motor vehicles, G452=Maintenance and repair of motor vehicles, G453=Sale of motor vehicle parts and accessories, G454=Sale, maintenance and repair of motorcycles a, G46=Wholesale trade, except of motor vehicles and, G461=Wholesale on a fee or contract basis, G462=Wholesale of agricultural raw materials and l, G463=Wholesale of food, beverages and tobacco, G464=Wholesale of household goods, G465=Wholesale of information and communication eq, G466=Wholesale of other machinery, equipment and s, G467=Other specialised wholesale, G469=Non-specialised wholesale trade, G47=Retail trade, except of motor vehicles and mo, G47_FOOD=Retail sale of food, beverages and tobacco, G47_NFOOD=Retail sale of non-food products (including f, G47_NFOOD_X_G473=Retail sale of non-food products (except fuel, G47_NF_CLTH=Retail sale of textiles, clothing, footware a, G47_NF_HLTH=Dispensing chemist; retail sale of medical an, G47_NF_OTH=Retail sale of information and communication , G47_NF_OTH1=Retail sale of computers, peripheral units an, G47_NF_OTH2=Retail sale of audio and video equipment; har, G47_X_G473=Retail trade, except of motor vehicles, motor, G471=Retail sale in non-specialised stores, G4711=Retail sale in non-specialised stores with fo, G4719=Other retail sale in non-specialised stores, G472=Retail sale of food, beverages and tobacco in, G473=Retail sale of automotive fuel in specialised, G474=Retail sale of information and communication , G475=Retail sale of other household equipment in s, G476=Retail sale of cultural and recreation goods , G477=Retail sale of other goods in specialised sto, G478=Retail sale via stalls and markets, G479=Retail trade not in stores, stalls or markets, G4791=Retail sale via mail order houses or via Inte
+  s_adj (3): NSA=Unadjusted data (i.e. neither seasonally adju, CA=Calendar adjusted data, not seasonally adjust, SCA=Seasonally and calendar adjusted data
+  unit (5): I21=Index, 2021=100, I15=Index, 2015=100, I10=Index, 2010=100, PCH_PRE=Percentage change on previous period, PCH_SM=Percentage change compared to same period in 
+  geo (1): LV=Latvia
+  time (1): 2026-08=2026-08
+
+=== sts_inpr_m ===
+  label: Production in industry - monthly data
+  updated: 2026-10-15T11:00:00+0200 | values: 273
+  freq (1): M=Monthly
+  indic_bt (1): PRD=Production (volume)
+  nace_r2 (361): B-D=Mining and quarrying; manufacturing; electric, MIG_ING_CAG=MIG - intermediate and capital goods, MIG_ING=MIG - intermediate goods, MIG_NRG_X_E=MIG - energy (except section E), MIG_NRG_X_D_E=MIG - energy (except sections D and E), MIG_CAG=MIG - capital goods, MIG_COG=MIG - consumer goods, MIG_COG_X_FOOD=MIG - consumer goods (except food, beverages , MIG_DCOG=MIG - durable consumer goods, MIG_NDCOG=MIG - non-durable consumer goods, B_C=Mining and quarrying; manufacturing, B_C_X_MIG_NRG=Mining and quarrying; manufacturing (except M, B-D_X_FOOD=Mining and quarrying; manufacturing; electric, B_C_X_FD_MIG_NRG=Mining and quarrying; manufacturing (except M, B=Mining and quarrying, B05=Mining of coal and lignite, B051=Mining of hard coal, B052=Mining of lignite, B06=Extraction of crude petroleum and natural gas, B061=Extraction of crude petroleum, B062=Extraction of natural gas, B07=Mining of metal ores, B071=Mining of iron ores, B072=Mining of non-ferrous metal ores, B08=Other mining and quarrying, B081=Quarrying of stone, sand and clay, B089=Mining and quarrying n.e.c., B0891=Mining of chemical and fertiliser minerals, B0892=Extraction of peat, B0893=Extraction of salt, B0899=Other mining and quarrying n.e.c., B09=Mining support service activities, C=Manufacturing, C_HTC_M=Medium high-technology manufacturing, C_HTC=High-technology manufacturing, C_LTC_M=Medium low-technology manufacturing, C_LTC=Low-technology manufacturing, C10-C12=Manufacture of food products; beverages and t, C10_C11=Manufacture of food products and beverages, C10=Manufacture of food products …
+  s_adj (3): NSA=Unadjusted data (i.e. neither seasonally adju, CA=Calendar adjusted data, not seasonally adjust, SCA=Seasonally and calendar adjusted data
+  unit (5): I21=Index, 2021=100, I15=Index, 2015=100, I10=Index, 2010=100, PCH_PRE=Percentage change on previous period, PCH_SM=Percentage change compared to same period in 
+  geo (1): LV=Latvia
+  time (1): 2026-08=2026-08
+
+=== demo_gind ===
+  label: Population change - Demographic balance and crude rates at national level
+  updated: 2026-09-30T23:00:00+0200 | values: 1
+  freq (1): A=Annual
+  indic_de (28): AVG=Average population - total, CNMIGRAT=Net migration plus statistical adjustment, CNMIGRATRT=Crude rate of net migration plus statistical , DEATH=Deaths - total, FAVG=Average population - females, FDEATH=Deaths - females, FJAN=Population on 1 January - females, FLBIRTH=Live births - females, GBIRTHRT=Crude birth rate, GDEATHRT=Crude death rate, GROW=Total population change, GROWRT=Crude rate of total population change, JAN=Population on 1 January - total, LBIRTH=Live births - total, MAVG=Average population - males, MDEATH=Deaths - males, MIGT=Sum of immigration and emigration plus statis, MIGTRT=Crude rate of the sum of immigration and emig, MJAN=Population on 1 January - males, MLBIRTH=Live births - males, NATGROW=Natural change of population, NATGROWRT=Crude rate of natural change of population, NATT=Sum of births and deaths (natural turnover), NATTRT=Crude rate of sum of births and deaths (crude, POPSHARE=Population as a percentage of EU28 (2013-2020, POPSHARE_EU27_2020=Population as a percentage of EU27 (from 2020, POPT=Sum of population changes (population turnove, POPTRT=Crude rate of sum of population changes(crude
+  geo (1): LV=Latvia
+  time (1): 2026=2026
+
+=== ei_bssi_m_r2 ===
+  label: Economic sentiment and confidence indicators by sector - monthly data
+  updated: 2026-09-29T11:00:00+0200 | values: 11
+  freq (1): M=Monthly
+  indic (6): BS-CCI-BAL=Construction confidence indicator, BS-ESI-I=Economic sentiment indicator, BS-ICI-BAL=Industrial confidence indicator, BS-RCI-BAL=Retail confidence indicator, BS-CSMCI-BAL=Consumer confidence indicator, BS-SCI-BAL=Services confidence indicator
+  s_adj (2): NSA=Unadjusted data (i.e. neither seasonally adju, SA=Seasonally adjusted data, not calendar adjust
+  geo (1): LV=Latvia
+  time (1): 2026-09=2026-09
+
+=== ilc_li02 ===
+  label: At-risk-of-poverty rate by poverty threshold, age and sex - EU-SILC and ECHP surveys
+  updated: 2026-10-20T11:00:00+0200 | values: 1302
+  freq (1): A=Annual
+  statinfo (2): MEAN_EI=Mean equivalised income, MED_EI=Median equivalised income
+  unit (2): THS_PER=Thousand persons, PC=Percentage
+  rskpovth (8): A_40=Above 40%, A_50=Above 50%, A_60=Above 60%, A_70=Above 70%, B_40=Below 40%, B_50=Below 50%, B_60=Below 60%, B_70=Below 70%
+  sex (3): T=Total, M=Males, F=Females
+  age (33): TOTAL=Total, Y_LT6=Less than 6 years, Y6-10=From 6 to 10 years, Y6-11=From 6 to 11 years, Y11-15=From 11 to 15 years, Y12-17=From 12 to 17 years, Y15-19=From 15 to 19 years, Y15-24=From 15 to 24 years, Y15-29=From 15 to 29 years, Y_LT16=Less than 16 years, Y16-19=From 16 to 19 years, Y16-24=From 16 to 24 years, Y16-29=From 16 to 29 years, Y16-64=From 16 to 64 years, Y_GE16=16 years or over, Y_LT18=Less than 18 years, Y18-24=From 18 to 24 years, Y18-64=From 18 to 64 years, Y_GE18=18 years or over, Y20-24=From 20 to 24 years, Y20-29=From 20 to 29 years, Y25-29=From 25 to 29 years, Y25-49=From 25 to 49 years, Y25-54=From 25 to 54 years, Y50-64=From 50 to 64 years, Y55-64=From 55 to 64 years, Y_LT60=Less than 60 years, Y_GE60=60 years or over, Y_LT65=Less than 65 years, Y65-74=From 65 to 74 years, Y_GE65=65 years or over, Y_LT75=Less than 75 years, Y_GE75=75 years or over
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== ilc_di12 ===
+  label: Gini coefficient of equivalised disposable income by age
+  updated: 2026-10-20T11:00:00+0200 | values: 2
+  freq (1): A=Annual
+  age (2): TOTAL=Total, Y_LT18=Less than 18 years
+  statinfo (1): GINI_HND=Gini coefficient (scale from 0 to 100)
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== irt_lt_mcby_m ===
+  label: EMU convergence criterion series - monthly data
+  updated: 2026-10-13T11:00:00+0200 | values: 1
+  freq (1): M=Monthly
+  int_rt (1): MCBY=EMU convergence criterion bond yields
+  geo (1): LV=Latvia
+  time (1): 2026-09=2026-09
+
+=== tipsbp20 ===
+  label: Current account balance - annual data
+  updated: 2026-10-02T11:00:00+0200 | values: 2
+  freq (1): A=Annual
+  unit (2): PC_GDP=Percentage of gross domestic product (GDP), MIO_NAC=Million units of national currency
+  bop_item (1): CA=Current account
+  sector10 (1): S1=Total economy
+  sectpart (1): S1=Total economy
+  stk_flow (1): BAL=Balance
+  partner (4): WRL_REST=Rest of the world, EXT_EU27_2020=Extra-EU27 (from 2020), EXT_EA21=Extra-euro area - 21 countries (from 2026), EXT_EA20=Extra-euro area - 20 countries (2023-2025)
+  s_adj (1): NSA=Unadjusted data (i.e. neither seasonally adju
+  geo (1): LV=Latvia
+  time (1): 2025=2025
+
+=== nama_10_lp_ulc ===
+  label: Labour productivity and unit labour costs - annual data
+  updated: 2026-10-21T11:00:00+0200 | values: 57
+  freq (1): A=Annual
+  unit (16): EUR=Euro, NAC=National currency, PPS_EU27_2020=Purchasing power standard (PPS, EU27 from 202, HW=Hours worked, I20=Index, 2020=100, I15=Index, 2015=100, I10=Index, 2010=100, PC=Percentage, PC_EU27_2020=Percentage of EU27 (from 2020) total, PC_EU27_2020_MEUR_CP=Percentage of EU27 (from 2020) total (based o, PC_EU27_2020_MPPS_CP=Percentage of EU27 (from 2020) total (based o, PCH_PRE=Percentage change on previous period, PCH_3Y=Percentage change (t/t-3), PCH_5Y=Percentage change (t/t-5), PCH_10Y=Percentage change (t/t-10), CP_MPPS_EU27_2020=Current prices, million purchasing power stan
+  na_item (11): D1_SAL_PER=Compensation per employee, D1_SAL_HW=Compensation of employees per hour worked, NLPR_PER=Nominal labour productivity per person, NLPR_HW=Nominal labour productivity per hour worked, RLPR_PER=Real labour productivity per person, RLPR_HW=Real labour productivity per hour worked, NULC_PER=Nominal unit labour cost based on persons, NULC_HW=Nominal unit labour cost based on hours worke, EMP_HAB=Total employment (employed persons) per capit, HW_HAB=Hours worked per capita, HW_EMP=Hours worked per employed person
+  geo (1): LV=Latvia
+  time (1): 2025=2025
