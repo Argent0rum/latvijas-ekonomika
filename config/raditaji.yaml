@@ -132,8 +132,8 @@ raditaji:
     labi: -1
     decimales: 1
     galvenais: true
-    apraksts_lv: Saskaņotais patēriņa cenu indekss (SPCI) — cik daudz cenas pieaugušas pēdējo 12 mēnešu laikā. ECB mērķis eirozonā ir 2 %.
-    apraksts_en: Harmonised index of consumer prices (HICP) — how much prices rose over the last 12 months. The ECB's euro area target is 2%.
+    apraksts_lv: Saskaņotais patēriņa cenu indekss (SPCI) — cik daudz cenas pieaugušas pēdējo 12 mēnešu laikā. ECB mērķis eirozonā ir 2 %. CSP publicētais nacionālais PCI var nedaudz atšķirties.
+    apraksts_en: Harmonised index of consumer prices (HICP) — how much prices rose over the last 12 months. The ECB's euro area target is 2%. The national CPI published by Statistics Latvia can differ slightly.
 
   - id: partikas_cenas
     kategorija: cenas

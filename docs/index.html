@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latvijas ekonomika</title>
+<meta name="description" content="Latvijas ekonomikas galvenie rādītāji, automātiski atjaunināti no Eurostat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a sticky control bar (country, compare-with, view, search, language), a strip of headline numbers,
+   then one section per category with indicator cards; clicking a card opens a detail panel with a full chart. */
+:root {
+  --bg: #F5F4F0; --surface: #FFFFFF; --surface-2: #F0EFEA; --ink: #17191C; --ink-2: #4A4F57; --muted: #737880;
+  --line: #E2E0D8; --line-2: #CBC8BE; --accent: #9E3039; --accent-soft: #F5E6E7;
+  --up: #1F7A45; --down: #B3362F; --neutral: #5F6670;
+  --lv: #9E3039; --lt: #C98A00; --ee: #2a78d6; --eu: #3A3E45; --x1: #1baf7a; --x2: #6250d6; --x3: #e87ba4; --x4: #eb6834;
+  --font-head: "Newsreader", Georgia, serif; --font-ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --shadow: 0 1px 2px rgba(23,25,28,.04), 0 6px 18px rgba(23,25,28,.05); --r: 12px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121315; --surface: #1B1D20; --surface-2: #23262A; --ink: #ECEDEF; --ink-2: #BABEC5; --muted: #8E939B;
+    --line: #2C2F34; --line-2: #3B3F45; --accent: #E07A84; --accent-soft: #3A2226; --up: #4CC384; --down: #F07C74; --neutral: #9AA0A8;
+    --lv: #E07A84; --lt: #E7B23A; --ee: #5B9EF0; --eu: #C9CDD3; --shadow: 0 1px 2px rgba(0,0,0,.3); color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.45; }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+
+header.top { padding-block: 26px 10px; }
+.title-row { display: flex; align-items: baseline; gap: 10px 18px; flex-wrap: wrap; }
+h1 { font-family: var(--font-head); font-weight: 600; font-size: clamp(1.9rem, 4.5vw, 2.8rem); letter-spacing: -0.02em; margin: 0; line-height: 1.05; }
+h1 .who { color: var(--accent); }
+.updated { color: var(--muted); font-size: .85rem; }
+.lede { color: var(--ink-2); margin: 8px 0 0; max-width: 70ch; }
+
+.bar { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding-block: 10px; }
+.ctl { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--ink-2); font-weight: 600; }
+select, input[type=search] { background: var(--surface); border: 1px solid var(--line-2); border-radius: 8px; padding: 6px 9px; }
+input[type=search] { min-width: 0; width: 200px; }
+.seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--line); border-radius: 9px; padding: 2px; gap: 2px; }
+.seg button { border: 0; background: none; padding: 4px 10px; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: .84rem; color: var(--ink-2); }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line-2); }
+.spacer { flex: 1; }
+
+main { padding-block: 18px 60px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; box-shadow: var(--shadow); cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.kpi:hover, .card:hover { border-color: var(--line-2); transform: translateY(-1px); }
+.kpi .n { font-size: .82rem; color: var(--ink-2); font-weight: 600; }
+.kpi .v { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; line-height: 1; letter-spacing: -0.01em; }
+.kpi .v small { font-family: var(--font-ui); font-size: .85rem; font-weight: 500; color: var(--muted); margin-left: 4px; }
+section.cat { margin-top: 34px; }
+.cat-h { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.cat-h h2 { font-family: var(--font-head); font-weight: 600; font-size: 1.45rem; margin: 0; letter-spacing: -0.01em; }
+.cat-h span { color: var(--muted); font-size: .85rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 13px 15px 10px; box-shadow: var(--shadow); cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 3px; min-width: 0; transition: transform .12s, border-color .12s; }
+.card .n { font-weight: 600; font-size: .93rem; line-height: 1.3; }
+.card .u { font-size: .78rem; color: var(--muted); }
+.vrow { display: flex; align-items: baseline; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+.card .v { font-family: var(--font-head); font-size: 1.85rem; font-weight: 600; line-height: 1; }
+.per { font-size: .8rem; color: var(--muted); }
+.chg { font-size: .82rem; font-weight: 600; display: inline-flex; gap: 4px; align-items: center; }
+.chg.up { color: var(--up); } .chg.down { color: var(--down); } .chg.neutral { color: var(--neutral); }
+.chg .ref { font-weight: 400; color: var(--muted); }
+.spark { width: 100%; height: 42px; display: block; margin-top: 6px; }
+.flag { font-size: .7rem; color: var(--muted); border: 1px solid var(--line-2); border-radius: 4px; padding: 0 4px; margin-left: 2px; cursor: help; }
+.empty { color: var(--muted); font-size: .9rem; padding: 20px 0; }
+
+/* table view */
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); margin-top: 12px; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 720px; }
+th, td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); background: var(--surface-2); position: sticky; top: 0; }
+td:first-child, th:first-child { text-align: left; white-space: normal; }
+tr.catrow td { background: var(--surface-2); font-weight: 700; text-align: left; font-family: var(--font-head); font-size: 1rem; }
+tbody tr[data-id] { cursor: pointer; } tbody tr[data-id]:hover td { background: var(--accent-soft); }
+
+/* detail panel */
+dialog { border: 1px solid var(--line); border-radius: 16px; padding: 0; width: min(1000px, calc(100vw - 20px)); max-height: calc(100vh - 20px); background: var(--surface); color: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.3); }
+dialog::backdrop { background: rgba(10,12,14,.5); }
+.dlg { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+.dlg-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.dlg-h h3 { font-family: var(--font-head); font-weight: 600; font-size: 1.6rem; margin: 0; line-height: 1.15; }
+.dlg-h .u { color: var(--muted); font-size: .9rem; }
+.x { border: 1px solid var(--line-2); background: var(--surface); border-radius: 8px; width: 36px; height: 36px; cursor: pointer; font-size: 1.1rem; flex: none; }
+.desc { color: var(--ink-2); max-width: 80ch; margin: 0; }
+.ctrls { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line-2); background: var(--surface); border-radius: 999px; padding: 4px 11px 4px 8px; cursor: pointer; font-size: .84rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.chip[aria-pressed="false"] { opacity: .5; } .chip[aria-pressed="false"] i { background: transparent !important; box-shadow: inset 0 0 0 2px var(--line-2); }
+.chart-box { position: relative; }
+.chart-box svg { display: block; width: 100%; height: auto; font-family: var(--font-ui); }
+.ax { stroke: var(--line-2); } .gl { stroke: var(--line); } .zero { stroke: var(--ink-2); stroke-width: 1; }
+.tk { fill: var(--muted); font-size: 11.5px; font-family: var(--font-num); }
+.cross { stroke: var(--muted); stroke-dasharray: 3 3; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--surface); border-radius: 8px; padding: 8px 10px; font-size: .82rem; white-space: nowrap; z-index: 3; box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+.tip b { display: block; margin-bottom: 3px; }
+.tip span { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.tip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.cmp { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.cmp .c { border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 2px; border-left: 4px solid var(--cc); }
+.cmp .c b { font-size: .85rem; }
+.cmp .c .v { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; }
+.foot { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .82rem; color: var(--muted); align-items: center; }
+.foot a { color: var(--accent); font-weight: 600; }
+.btn { border: 1px solid var(--line-2); background: var(--surface); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-weight: 600; font-size: .85rem; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+footer { border-top: 1px solid var(--line); padding-block: 20px 40px; color: var(--muted); font-size: .85rem; }
+footer a { color: var(--accent); }
+.loading { padding: 60px 0; color: var(--muted); text-align: center; }
+
+@media (max-width: 900px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  input[type=search] { width: 100%; }
+  .bar .wrap { gap: 8px 12px; }
+  .kpi .v { font-size: 1.7rem; }
+  .dlg { padding: 16px 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .card, .kpi { transition: none; } .card:hover, .kpi:hover { transform: none; } }
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <div class="title-row"><h1 id="title">Ekonomika skaitļos</h1><span class="updated" id="updated"></span></div>
+  <p class="lede" id="lede"></p>
+</header>
+<div class="bar"><div class="wrap">
+  <label class="ctl"><span id="lCountry">Valsts</span><select id="country"></select></label>
+  <label class="ctl"><span id="lCompare">Salīdzināt ar</span>
+    <select id="years"></select></label>
+  <span class="seg" id="viewSeg"><button data-v="cards" aria-pressed="true" id="vCards">Kartītes</button><button data-v="table" aria-pressed="false" id="vTable">Tabula</button></span>
+  <input type="search" id="q" placeholder="Meklēt rādītāju…" aria-label="Search">
+  <span class="spacer"></span>
+  <span class="seg" id="langSeg"><button data-l="lv" aria-pressed="true">LV</button><button data-l="en" aria-pressed="false">EN</button></span>
+</div></div>
+<main class="wrap" id="main"><div class="loading">Ielādē datus…</div></main>
+<footer class="wrap" id="foot"></footer>
+<dialog id="dlg"><div class="dlg" id="dlgBody"></div></dialog>
+
+<script>
+(function () {
+"use strict";
+const T = {
+  lv: { title: "Ekonomika skaitļos", lede: "Galvenie ekonomikas rādītāji no Eurostat, atjaunināti katru dienu. Noklikšķini uz jebkura rādītāja, lai redzētu tā vēsturi un salīdzinātu valstis.",
+    country: "Valsts", compare: "Salīdzināt ar", ago: n => n === 1 ? "pirms 1 gada" : `pirms ${n} gadiem`, cards: "Kartītes", table: "Tabula", search: "Meklēt rādītāju…",
+    headline: "Galvenie rādītāji", updated: d => `Dati atjaunināti ${d}`, vs: "pret", noData: "nav datu", loading: "Ielādē datus…", nothingFound: "Neviens rādītājs neatbilst meklētajam.",
+    th: ["Rādītājs", "Jaunākais", "Periods", "Izmaiņa", "Salīdzinājumā ar"], since: "Kopš", all: "Visi", range: "Periods",
+    countries: "Valstis", csv: "Lejupielādēt CSV", source: "Avots: Eurostat", srcUpd: d => `Eurostat atjaunināja ${d}`,
+    flags: { p: "provizoriski dati", e: "aplēse", b: "laikrindas pārrāvums", d: "definīcija atšķiras", u: "zema ticamība", c: "konfidenciāli" },
+    yrs: n => `${n} g.`, footer: `Dati: <a href="https://ec.europa.eu/eurostat">Eurostat</a>. Latvijas Centrālās statistikas pārvaldes publicētie skaitļi dažkārt nedaudz atšķiras (piem., Eurostat inflācija ir saskaņotais SPCI, nevis nacionālais PCI). Kods un iestatījumi: <a href="https://github.com/Argent0rum/latvijas-ekonomika">github.com/Argent0rum/latvijas-ekonomika</a>.`,
+    pp: "pp", months: ["janv.", "febr.", "marts", "apr.", "maijs", "jūn.", "jūl.", "aug.", "sept.", "okt.", "nov.", "dec."] },
+  en: { title: "The economy in numbers", lede: "Key economic indicators from Eurostat, updated daily. Click any indicator to see its history and compare countries.",
+    country: "Country", compare: "Compare with", ago: n => n === 1 ? "1 year ago" : `${n} years ago`, cards: "Cards", table: "Table", search: "Search indicators…",
+    headline: "Headline indicators", updated: d => `Data updated ${d}`, vs: "vs", noData: "no data", loading: "Loading data…", nothingFound: "No indicator matches your search.",
+    th: ["Indicator", "Latest", "Period", "Change", "Compared with"], since: "From", all: "All", range: "Range",
+    countries: "Countries", csv: "Download CSV", source: "Source: Eurostat", srcUpd: d => `Eurostat updated ${d}`,
+    flags: { p: "provisional", e: "estimated", b: "break in series", d: "definition differs", u: "low reliability", c: "confidential" },
+    yrs: n => `${n} y`, footer: `Data: <a href="https://ec.europa.eu/eurostat">Eurostat</a>. Figures published by Statistics Latvia can differ slightly (e.g. Eurostat inflation is the harmonised HICP, not the national CPI). Code and settings: <a href="https://github.com/Argent0rum/latvijas-ekonomika">github.com/Argent0rum/latvijas-ekonomika</a>.`,
+    pp: "pp", months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] }
+};
+const COLORS = { LV: "var(--lv)", LT: "var(--lt)", EE: "var(--ee)", EU27_2020: "var(--eu)" };
+const EXTRA = ["var(--x1)", "var(--x2)", "var(--x3)", "var(--x4)"];
+const LS = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const S = { lang: LS.get("le.lang") || "lv", country: LS.get("le.country") || "LV", years: +(LS.get("le.years") || 1), view: LS.get("le.view") || "cards", q: "", D: null,
+  detail: null, range: 10, on: null };
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const t = k => T[S.lang][k];
+const nm = o => (S.lang === "en" ? o.en : o.lv) || o.lv || o.en;
+const loc = () => S.lang === "en" ? "en-GB" : "lv-LV";
+const fmt = (v, d) => v == null || isNaN(v) ? "—" : new Intl.NumberFormat(loc(), { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+const sign = (v, d) => (v > 0 ? "+" : v < 0 ? "−" : "±") + fmt(Math.abs(v), d);
+function colorOf(code) { if (COLORS[code]) return COLORS[code]; const i = S.D.valstis.findIndex(c => c.kods === code); return EXTRA[(i - 4 + EXTRA.length * 4) % EXTRA.length]; }
+
+/* ---- periods ---- */
+function freqOf(p) { return /^\d{4}-\d{2}$/.test(p) ? "M" : /-Q\d$/.test(p) ? "Q" : /-S\d$/.test(p) ? "S" : "A"; }
+function shift(p, n) {
+  const y = +p.slice(0, 4) - n; const rest = p.slice(4);
+  return y + rest;
+}
+function toX(p) {
+  const y = +p.slice(0, 4), f = freqOf(p);
+  if (f === "M") return y + (+p.slice(5) - 0.5) / 12;
+  if (f === "Q") return y + (+p.slice(-1) - 0.5) / 4;
+  if (f === "S") return y + (+p.slice(-1) - 0.5) / 2;
+  return y + 0.5;
+}
+function perLabel(p, long) {
+  const y = p.slice(0, 4), f = freqOf(p), lv = S.lang === "lv";
+  if (f === "M") { const m = T[S.lang].months[+p.slice(5) - 1]; return lv ? `${y}. g. ${m}` : `${m} ${y}`; }
+  if (f === "Q") return lv ? `${y}. g. ${p.slice(-1)}. cet.` : `Q${p.slice(-1)} ${y}`;
+  if (f === "S") return lv ? `${y}. g. ${p.slice(-1)}. pusg.` : `H${p.slice(-1)} ${y}`;
+  return lv ? `${y}. g.` : y;
+}
+
+/* ---- numbers for one indicator & country ---- */
+function series(ind, code) { return (ind.dati && ind.dati[code]) || []; }
+function latest(ind, code) { const s = series(ind, code); for (let i = s.length - 1; i >= 0; i--) if (s[i][1] != null) return s[i]; return null; }
+function valueAt(ind, code, per) { const r = series(ind, code).find(x => x[0] === per); return r && r[1] != null ? r : null; }
+function change(ind, code, years) {
+  const L = latest(ind, code); if (!L) return null;
+  const ref = valueAt(ind, code, shift(L[0], years)); if (!ref) return { L, ref: null };
+  const diff = ind.izmainas === "pct" ? (ref[1] ? (L[1] / ref[1] - 1) * 100 : null) : L[1] - ref[1];
+  return { L, ref, diff };
+}
+function chgClass(ind, diff) { if (diff == null || Math.abs(diff) < 1e-9 || !ind.labi) return "neutral"; return diff * ind.labi > 0 ? "up" : "down"; }
+function chgText(ind, c) {
+  if (!c || !c.ref || c.diff == null) return `<span class="chg neutral">—</span>`;
+  const unit = ind.izmainas === "pct" ? "%" : " " + t("pp");
+  const arrow = c.diff > 0 ? "▲" : c.diff < 0 ? "▼" : "■";
+  return `<span class="chg ${chgClass(ind, c.diff)}">${arrow} ${sign(c.diff, ind.izmainas === "pct" ? 1 : Math.max(1, ind.decimales || 0))}${unit} <span class="ref">${t("vs")} ${esc(perLabel(c.ref[0]))}</span></span>`;
+}
+function flagHTML(f) { if (!f) return ""; const fl = [...new Set(f.split(""))].filter(x => T[S.lang].flags[x]); return fl.length ? `<span class="flag" title="${esc(fl.map(x => T[S.lang].flags[x]).join(", "))}">${esc(fl.join(""))}</span>` : ""; }
+
+function spark(ind, code) {
+  const s = series(ind, code).filter(r => r[1] != null); const L = latest(ind, code); if (!L || s.length < 2) return "";
+  const from = toX(L[0]) - 5; const pts = s.filter(r => toX(r[0]) >= from); if (pts.length < 2) return "";
+  const xs = pts.map(r => toX(r[0])), ys = pts.map(r => r[1]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys), W = 260, H = 42;
+  const X = x => (x - x0) / (x1 - x0 || 1) * (W - 6) + 3, Y = y => H - 4 - (y - y0) / (y1 - y0 || 1) * (H - 8);
+  const d = pts.map((r, i) => `${i ? "L" : "M"}${X(toX(r[0])).toFixed(1)},${Y(r[1]).toFixed(1)}`).join("");
+  const zero = y0 < 0 && y1 > 0 ? `<line x1="0" x2="${W}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--line-2)" stroke-dasharray="2 3"/>` : "";
+  const last = pts[pts.length - 1];
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">${zero}<path d="${d}" fill="none" stroke="${colorOf(code)}" stroke-width="2" vector-effect="non-scaling-stroke"/><circle cx="${X(toX(last[0]))}" cy="${Y(last[1])}" r="3" fill="${colorOf(code)}"/></svg>`;
+}
+
+/* ---- render ---- */
+function matches(ind) { const q = S.q.trim().toLowerCase(); return !q || (ind.lv + " " + ind.en + " " + (ind.apraksts_lv || "") + " " + (ind.apraksts_en || "")).toLowerCase().includes(q); }
+function cardHTML(ind, big) {
+  const L = latest(ind, S.country), c = change(ind, S.country, S.years);
+  if (big) return `<button class="kpi" data-id="${esc(ind.id)}"><span class="n">${esc(nm(ind))}</span><span class="v num-head">${L ? fmt(L[1], ind.decimales) : "—"}<small>${esc(S.lang === "en" ? ind.vieniba_en : ind.vieniba_lv)}</small></span><span class="per">${L ? esc(perLabel(L[0])) : t("noData")}${L ? flagHTML(L[2]) : ""}</span>${chgText(ind, c)}</button>`;
+  return `<button class="card" data-id="${esc(ind.id)}"><span class="n">${esc(nm(ind))}</span><span class="u">${esc(S.lang === "en" ? ind.vieniba_en : ind.vieniba_lv)}</span>
+    <span class="vrow"><span class="v">${L ? fmt(L[1], ind.decimales) : "—"}</span><span class="per">${L ? esc(perLabel(L[0])) : t("noData")}${L ? flagHTML(L[2]) : ""}</span></span>${chgText(ind, c)}${spark(ind, S.country)}</button>`;
+}
+function render() {
+  const D = S.D; if (!D) return;
+  document.documentElement.lang = S.lang;
+  $("title").innerHTML = `${esc(t("title"))}: <span class="who">${esc(nm(D.valstis.find(c => c.kods === S.country) || D.valstis[0]))}</span>`;
+  document.title = `${nm(D.valstis.find(c => c.kods === S.country) || D.valstis[0])} · ${t("title")}`;
+  $("lede").textContent = t("lede"); $("updated").textContent = t("updated")(D.generets.slice(0, 10));
+  $("lCountry").textContent = t("country"); $("lCompare").textContent = t("compare"); $("vCards").textContent = t("cards"); $("vTable").textContent = t("table"); $("q").placeholder = t("search");
+  $("country").innerHTML = D.valstis.map(c => `<option value="${esc(c.kods)}"${c.kods === S.country ? " selected" : ""}>${esc(nm(c))}</option>`).join("");
+  $("years").innerHTML = [1, 2, 3, 5, 10, 15, 20].map(n => `<option value="${n}"${n === S.years ? " selected" : ""}>${esc(t("ago")(n))}</option>`).join("");
+  document.querySelectorAll("#viewSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === S.view)));
+  document.querySelectorAll("#langSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === S.lang)));
+  $("foot").innerHTML = t("footer");
+  const inds = D.raditaji.filter(matches);
+  let h = "";
+  if (!inds.length) { $("main").innerHTML = `<div class="empty">${esc(t("nothingFound"))}</div>`; return; }
+  if (S.view === "table") {
+    h = `<div class="tbl-wrap"><table><thead><tr>${t("th").map(x => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>`;
+    for (const cat of D.kategorijas) {
+      const list = inds.filter(i => i.kategorija === cat.id); if (!list.length) continue;
+      h += `<tr class="catrow"><td colspan="5">${esc(nm(cat))}</td></tr>`;
+      for (const ind of list) { const L = latest(ind, S.country), c = change(ind, S.country, S.years);
+        h += `<tr data-id="${esc(ind.id)}"><td>${esc(nm(ind))} <span class="per">· ${esc(S.lang === "en" ? ind.vieniba_en : ind.vieniba_lv)}</span></td><td class="num">${L ? fmt(L[1], ind.decimales) : "—"}${L ? flagHTML(L[2]) : ""}</td><td>${L ? esc(perLabel(L[0])) : ""}</td><td>${c && c.ref && c.diff != null ? chgText(ind, c).replace(/<span class="ref">.*?<\/span>/, "") : "—"}</td><td class="per">${c && c.ref ? esc(perLabel(c.ref[0])) : ""}</td></tr>`; }
+    }
+    $("main").innerHTML = h + `</tbody></table></div>`; return;
+  }
+  const head = inds.filter(i => i.galvenais);
+  if (head.length && !S.q) h += `<section><div class="cat-h"><h2>${esc(t("headline"))}</h2></div><div class="kpis">${head.map(i => cardHTML(i, true)).join("")}</div></section>`;
+  for (const cat of D.kategorijas) {
+    const list = inds.filter(i => i.kategorija === cat.id); if (!list.length) continue;
+    h += `<section class="cat"><div class="cat-h"><h2>${esc(nm(cat))}</h2><span>${list.length}</span></div><div class="cards">${list.map(i => cardHTML(i)).join("")}</div></section>`;
+  }
+  $("main").innerHTML = h;
+}
+
+/* ---- detail panel with full chart ---- */
+function openDetail(id) {
+  const ind = S.D.raditaji.find(i => i.id === id); if (!ind) return;
+  S.detail = ind; S.on = S.on || Object.fromEntries(S.D.valstis.map(c => [c.kods, true]));
+  renderDetail(); if (!$("dlg").open) $("dlg").showModal();
+}
+function renderDetail() {
+  const ind = S.detail; if (!ind) return;
+  const unit = S.lang === "en" ? ind.vieniba_en : ind.vieniba_lv;
+  const cmp = S.D.valstis.map(c => { const L = latest(ind, c.kods), ch = change(ind, c.kods, S.years);
+    return `<div class="c" style="--cc:${colorOf(c.kods)}"><b>${esc(nm(c))}</b><span class="v">${L ? fmt(L[1], ind.decimales) : "—"}</span><span class="per">${L ? esc(perLabel(L[0])) : t("noData")}${L ? flagHTML(L[2]) : ""}</span>${chgText(ind, ch)}</div>`; }).join("");
+  const ranges = [[2, t("yrs")(2)], [5, t("yrs")(5)], [10, t("yrs")(10)], [0, t("all")]];
+  $("dlgBody").innerHTML = `
+    <div class="dlg-h"><div><h3>${esc(nm(ind))}</h3><span class="u">${esc(unit)}</span></div><button class="x" data-close aria-label="Close">✕</button></div>
+    <p class="desc">${esc(S.lang === "en" ? ind.apraksts_en : ind.apraksts_lv)}</p>
+    <div class="cmp">${cmp}</div>
+    <div class="ctrls"><span class="chips" id="chips">${S.D.valstis.map(c => `<button class="chip" data-c="${esc(c.kods)}" aria-pressed="${!!S.on[c.kods]}"><i style="background:${colorOf(c.kods)}"></i>${esc(nm(c))}</button>`).join("")}</span>
+      <span class="spacer"></span><span class="seg" id="rangeSeg">${ranges.map(([n, l]) => `<button data-r="${n}" aria-pressed="${S.range === n}">${esc(l)}</button>`).join("")}</span></div>
+    <div class="chart-box" id="chartBox"></div>
+    <div class="foot"><span>${esc(t("source"))} · <a href="${esc(ind.avots_url)}" target="_blank" rel="noopener">${esc(ind.datu_kopa)}</a></span>${ind.atjaunots_eurostat ? `<span>${esc(t("srcUpd")(ind.atjaunots_eurostat.slice(0, 10)))}</span>` : ""}<span class="spacer"></span><button class="btn" data-csv>${esc(t("csv"))}</button></div>`;
+  drawChart();
+}
+function drawChart() {
+  const ind = S.detail, box = $("chartBox"); if (!ind || !box) return;
+  const codes = S.D.valstis.map(c => c.kods).filter(c => S.on[c] && series(ind, c).length);
+  const all = codes.flatMap(c => series(ind, c).filter(r => r[1] != null).map(r => [toX(r[0]), r[1], r[0], c]));
+  if (!all.length) { box.innerHTML = `<div class="empty">${esc(t("noData"))}</div>`; return; }
+  const xmax = Math.max(...all.map(r => r[0])), xmin0 = Math.min(...all.map(r => r[0]));
+  const xmin = S.range ? Math.max(xmin0, xmax - S.range) : xmin0;
+  const vis = all.filter(r => r[0] >= xmin - 1e-9);
+  let ymin = Math.min(...vis.map(r => r[1])), ymax = Math.max(...vis.map(r => r[1]));
+  if (ymin > 0 && ymin < ymax * 0.35) ymin = 0; const pad = (ymax - ymin) * 0.08 || Math.abs(ymax) * 0.1 || 1; ymin -= ymin === 0 ? 0 : pad; ymax += pad;
+  const W = Math.max(320, box.clientWidth || 800), H = Math.min(420, Math.max(260, W * 0.45)), m = { l: 56, r: 16, t: 12, b: 30 };
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const X = x => m.l + (x - xmin) / (xmax - xmin || 1) * iw, Y = y => m.t + ih - (y - ymin) / (ymax - ymin || 1) * ih;
+  const step = (span, n) => { const raw = span / n, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; };
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(nm(ind))}">`;
+  const sy = step(ymax - ymin, 5);
+  for (let v = Math.ceil(ymin / sy) * sy; v <= ymax + 1e-9; v += sy) { const y = Y(v); s += `<line class="${Math.abs(v) < 1e-9 ? "zero" : "gl"}" x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}"/><text class="tk" x="${m.l - 6}" y="${y + 4}" text-anchor="end">${esc(fmt(v, sy < 1 ? (sy < 0.1 ? 2 : 1) : 0))}</text>`; }
+  const sx = Math.max(1, step(xmax - xmin, Math.max(2, Math.floor(iw / 70))));
+  for (let v = Math.ceil(xmin / sx) * sx; v <= xmax; v += sx) { const x = X(v); s += `<line class="gl" x1="${x}" x2="${x}" y1="${m.t}" y2="${m.t + ih}"/><text class="tk" x="${x}" y="${H - 8}" text-anchor="middle">${Math.round(v)}</text>`; }
+  s += `<line class="ax" x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${m.t + ih}"/>`;
+  for (const c of codes) {
+    const pts = series(ind, c).filter(r => r[1] != null && toX(r[0]) >= xmin - 1e-9);
+    if (!pts.length) continue;
+    const d = pts.map((r, i) => `${i ? "L" : "M"}${X(toX(r[0])).toFixed(1)},${Y(r[1]).toFixed(1)}`).join("");
+    const main = c === S.country;
+    s += `<path d="${d}" fill="none" stroke="${colorOf(c)}" stroke-width="${main ? 2.8 : 1.8}" stroke-linejoin="round" stroke-linecap="round"/>`;
+    if (pts.length < 40) s += pts.map(r => `<circle cx="${X(toX(r[0]))}" cy="${Y(r[1])}" r="${main ? 3 : 2.2}" fill="${colorOf(c)}"/>`).join("");
+  }
+  s += `<line id="cross" class="cross" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" visibility="hidden"/><rect id="hit" x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/></svg><div class="tip" id="tip" hidden></div>`;
+  box.innerHTML = s;
+  const svg = box.querySelector("svg"), tip = $("tip"), cross = $("cross");
+  const periods = [...new Set(vis.map(r => r[2]))].sort((a, b) => toX(a) - toX(b));
+  const move = e => {
+    const r = svg.getBoundingClientRect(), scale = r.width / W, px = (e.clientX - r.left) / scale;
+    const xv = xmin + (px - m.l) / iw * (xmax - xmin);
+    let best = periods[0]; for (const p of periods) if (Math.abs(toX(p) - xv) < Math.abs(toX(best) - xv)) best = p;
+    const xx = X(toX(best)); cross.setAttribute("x1", xx); cross.setAttribute("x2", xx); cross.setAttribute("visibility", "visible");
+    const rows = codes.map(c => { const v = valueAt(ind, c, best); return v ? `<span><span><i style="background:${colorOf(c)}"></i>${esc(nm(S.D.valstis.find(k => k.kods === c)))}</span><b class="num">${fmt(v[1], ind.decimales)}${flagHTML(v[2]).replace(/class="flag"/, 'class="flag" style="color:inherit"')}</b></span>` : ""; }).join("");
+    tip.innerHTML = `<b>${esc(perLabel(best))}</b>${rows}`; tip.hidden = false;
+    const tw = tip.offsetWidth; let left = xx * scale + 12; if (left + tw > box.clientWidth) left = xx * scale - tw - 12;
+    tip.style.left = left + "px"; tip.style.top = (m.t * scale + 4) + "px";
+  };
+  svg.addEventListener("pointermove", move); svg.addEventListener("pointerdown", move);
+  svg.addEventListener("pointerleave", () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); });
+}
+function downloadCSV() {
+  const ind = S.detail; if (!ind) return;
+  const codes = S.D.valstis.map(c => c.kods);
+  const periods = [...new Set(codes.flatMap(c => series(ind, c).map(r => r[0])))].sort((a, b) => toX(a) - toX(b));
+  const sep = S.lang === "lv" ? ";" : ",";
+  const val = v => v == null ? "" : (S.lang === "lv" ? String(v).replace(".", ",") : String(v));
+  const lines = [["periods", ...S.D.valstis.map(c => nm(c))].join(sep)].concat(periods.map(p => [p, ...codes.map(c => { const r = valueAt(ind, c, p); return r ? val(r[1]) : ""; })].join(sep)));
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `${ind.id}.csv`; document.body.appendChild(a); a.click(); a.remove();
+}
+
+/* ---- events ---- */
+$("country").addEventListener("change", e => { S.country = e.target.value; LS.set("le.country", S.country); render(); });
+$("years").addEventListener("change", e => { S.years = +e.target.value; LS.set("le.years", S.years); render(); if ($("dlg").open) renderDetail(); });
+$("viewSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; S.view = b.dataset.v; LS.set("le.view", S.view); render(); });
+$("langSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; S.lang = b.dataset.l; LS.set("le.lang", S.lang); render(); if ($("dlg").open) renderDetail(); });
+let qt; $("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { S.q = e.target.value; render(); }, 150); });
+$("main").addEventListener("click", e => { const el = e.target.closest("[data-id]"); if (el) openDetail(el.dataset.id); });
+$("dlgBody").addEventListener("click", e => {
+  if (e.target.closest("[data-close]")) { $("dlg").close(); return; }
+  if (e.target.closest("[data-csv]")) { downloadCSV(); return; }
+  const c = e.target.closest("[data-c]"); if (c) { S.on[c.dataset.c] = !S.on[c.dataset.c]; c.setAttribute("aria-pressed", String(!!S.on[c.dataset.c])); drawChart(); return; }
+  const r = e.target.closest("[data-r]"); if (r) { S.range = +r.dataset.r; document.querySelectorAll("#rangeSeg button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.r === S.range))); drawChart(); }
+});
+$("dlg").addEventListener("click", e => { if (e.target === $("dlg")) $("dlg").close(); });
+let rz; new ResizeObserver(() => { clearTimeout(rz); rz = setTimeout(() => { if ($("dlg").open) drawChart(); }, 100); }).observe(document.body);
+const hashId = () => decodeURIComponent(location.hash.slice(1));
+
+fetch("data/dati.json", { cache: "no-cache" }).then(r => r.json()).then(D => {
+  S.D = D;
+  if (!D.valstis.some(c => c.kods === S.country)) S.country = D.valstis[0].kods;
+  render();
+  if (hashId() && D.raditaji.some(i => i.id === hashId())) openDetail(hashId());
+}).catch(err => { $("main").innerHTML = `<div class="empty">Neizdevās ielādēt datus / Could not load data: ${esc(err.message)}</div>`; });
+})();
+</script>
+</body>
+</html>
