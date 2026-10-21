@@ -1,0 +1,28 @@
+# Valstis, kas parādās paneļa izvēlnē.
+# Lai pievienotu valsti: iekopē vienu bloku un nomaini kodu un nosaukumus.
+# "kods" ir Eurostat valsts kods (parasti 2 burti; Grieķija = EL; ES vidējais = EU27_2020).
+# Pēc saglabāšanas GitHub automātiski lejupielādēs datus arī jaunajai valstij.
+
+- kods: LV
+  lv: Latvija
+  en: Latvia
+- kods: LT
+  lv: Lietuva
+  en: Lithuania
+- kods: EE
+  lv: Igaunija
+  en: Estonia
+- kods: EU27_2020
+  lv: ES vidēji (27 valstis)
+  en: EU average (27 countries)
+
+# Piemēri, ko var pievienot (noņem # rindas sākumā):
+# - kods: FI
+#   lv: Somija
+#   en: Finland
+# - kods: PL
+#   lv: Polija
+#   en: Poland
+# - kods: SE
+#   lv: Zviedrija
+#   en: Sweden

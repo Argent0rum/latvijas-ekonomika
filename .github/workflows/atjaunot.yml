@@ -1,0 +1,41 @@
+# Downloads the latest Eurostat data every day and saves it into the repository,
+# so the dashboard (docs/index.html) always shows current numbers.
+# Also runs whenever the settings (config/) or the script change, and on demand: Actions → "Atjaunot datus" → Run workflow.
+name: Atjaunot datus
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * *"
+  push:
+    branches: [main]
+    paths: ["config/**", "scripts/atjaunot.py", ".github/workflows/atjaunot.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atjaunot-datus
+  cancel-in-progress: false
+
+jobs:
+  atjaunot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pyyaml
+      - name: Lejupielādēt datus no Eurostat
+        run: python scripts/atjaunot.py
+      - name: Saglabāt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then echo "Nav izmaiņu."; else
+            git commit -m "Dati atjaunināti $(date -u +%Y-%m-%d)"
+            git pull --rebase
+            git push
+          fi

@@ -1,0 +1,467 @@
+# Rādītāji, ko rāda panelis. Katrs bloks = viens rādītājs (viena kartīte).
+#
+# Lai PIEVIENOTU rādītāju: iekopē esošu bloku, nomaini "id", nosaukumus un Eurostat datu kopu + filtrus.
+#   Pareizos filtru kodus var atrast ar GitHub Actions → "Izpētīt Eurostat datu kopas" (rezultāts: izpete/rezultats.txt).
+# Lai NOŅEMTU rādītāju: izdzēs bloku (vai ieliec # katras rindas sākumā).
+# Lai MAINĪTU secību: pārvieto bloku. Kartītes parādās tādā pašā secībā.
+#
+# Lauki:
+#   id           unikāls īss nosaukums (bez atstarpēm)
+#   kategorija   sadaļa, kurā rādīt (skat. "kategorijas" zemāk)
+#   lv / en      nosaukums latviski / angliski
+#   vieniba_lv / vieniba_en   mērvienība
+#   datu_kopa    Eurostat datu kopas kods
+#   filtri       Eurostat filtri (valsti un laiku nenorāda — tos pievieno automātiski)
+#   izmainas     "pp" = izmaiņa procentpunktos (rādītājiem, kas jau ir %), "pct" = izmaiņa procentos (summām, skaitiem)
+#   labi         1 = augstāks ir labāk (zaļš), -1 = zemāks ir labāk, 0 = neitrāls
+#   decimales    cik ciparus aiz komata rādīt
+#   galvenais    true = rāda arī augšējā "Galvenie rādītāji" joslā
+#   papildinat_ar  (nav obligāts) vecāka datu kopa, ar ko aizpildīt agrākos gadus
+#   apraksts_lv / apraksts_en   īss skaidrojums
+
+kategorijas:
+  - id: izaugsme
+    lv: Izaugsme un ienākumi valstī
+    en: Growth and output
+  - id: cenas
+    lv: Cenas
+    en: Prices
+  - id: darbs
+    lv: Darba tirgus
+    en: Labour market
+  - id: ienakumi
+    lv: Algas un ienākumi
+    en: Wages and incomes
+  - id: finanses
+    lv: Valsts finanses
+    en: Public finances
+  - id: arejie
+    lv: Ārējā ekonomika
+    en: External sector
+  - id: bizness
+    lv: Uzņēmējdarbība un noskaņojums
+    en: Business and sentiment
+  - id: iedzivotaji
+    lv: Iedzīvotāji
+    en: Population
+
+raditaji:
+  # ---------------- Izaugsme ----------------
+  - id: ikp_pieaugums_cet
+    kategorija: izaugsme
+    lv: IKP reālais pieaugums (ceturksnis)
+    en: Real GDP growth (quarter)
+    vieniba_lv: "% pret iepr. gada ceturksni"
+    vieniba_en: "% year on year"
+    datu_kopa: namq_10_gdp
+    filtri: {unit: CLV_PCH_SM, s_adj: SCA, na_item: B1GQ}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    galvenais: true
+    apraksts_lv: Cik daudz ekonomikas apjoms (bez cenu ietekmes) pieaudzis salīdzinājumā ar to pašu ceturksni pirms gada. Sezonāli un kalendāri izlīdzināti dati.
+    apraksts_en: How much the economy grew in real terms compared with the same quarter a year earlier. Seasonally and calendar adjusted.
+
+  - id: ikp_pieaugums_gads
+    kategorija: izaugsme
+    lv: IKP reālais pieaugums (gads)
+    en: Real GDP growth (year)
+    vieniba_lv: "% gadā"
+    vieniba_en: "% per year"
+    datu_kopa: nama_10_gdp
+    filtri: {unit: CLV_PCH_PRE, na_item: B1GQ}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Ekonomikas reālais pieaugums visā gadā.
+    apraksts_en: Real growth of the economy over the whole year.
+
+  - id: ikp_milj
+    kategorija: izaugsme
+    lv: IKP faktiskajās cenās
+    en: GDP at current prices
+    vieniba_lv: milj. EUR
+    vieniba_en: EUR million
+    datu_kopa: nama_10_gdp
+    filtri: {unit: CP_MEUR, na_item: B1GQ}
+    izmainas: pct
+    labi: 1
+    decimales: 0
+    apraksts_lv: Visu valstī saražoto preču un pakalpojumu vērtība gadā (ar inflāciju).
+    apraksts_en: Value of everything produced in the country in a year (including inflation).
+
+  - id: ikp_uz_iedz
+    kategorija: izaugsme
+    lv: IKP uz vienu iedzīvotāju
+    en: GDP per person
+    vieniba_lv: EUR
+    vieniba_en: EUR
+    datu_kopa: nama_10_pc
+    filtri: {unit: CP_EUR_HAB, na_item: B1GQ}
+    izmainas: pct
+    labi: 1
+    decimales: 0
+    apraksts_lv: IKP faktiskajās cenās, dalīts ar iedzīvotāju skaitu.
+    apraksts_en: GDP at current prices divided by population.
+
+  - id: ikp_pps_es
+    kategorija: izaugsme
+    lv: IKP uz iedzīvotāju pēc pirktspējas
+    en: GDP per person, purchasing power
+    vieniba_lv: ES = 100
+    vieniba_en: EU = 100
+    datu_kopa: nama_10_pc
+    filtri: {unit: PC_EU27_2020_HAB_MPPS_CP, na_item: B1GQ}
+    izmainas: pp
+    labi: 1
+    decimales: 0
+    apraksts_lv: Dzīves līmeņa salīdzinājums ar ES vidējo, ņemot vērā cenu atšķirības. 100 = ES vidējais.
+    apraksts_en: Living standards compared with the EU average, adjusted for price differences. 100 = EU average.
+
+  # ---------------- Cenas ----------------
+  - id: inflacija
+    kategorija: cenas
+    lv: Inflācija
+    en: Inflation
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: prc_hicp_minr
+    filtri: {unit: RCH_A, coicop18: TOTAL}
+    papildinat_ar: {datu_kopa: prc_hicp_manr, filtri: {unit: RCH_A, coicop: CP00}}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    galvenais: true
+    apraksts_lv: Saskaņotais patēriņa cenu indekss (SPCI) — cik daudz cenas pieaugušas pēdējo 12 mēnešu laikā. ECB mērķis eirozonā ir 2 %.
+    apraksts_en: Harmonised index of consumer prices (HICP) — how much prices rose over the last 12 months. The ECB's euro area target is 2%.
+
+  - id: partikas_cenas
+    kategorija: cenas
+    lv: Pārtikas cenu pārmaiņas
+    en: Food price inflation
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: prc_hicp_minr
+    filtri: {unit: RCH_A, coicop18: CP01}
+    papildinat_ar: {datu_kopa: prc_hicp_manr, filtri: {unit: RCH_A, coicop: CP01}}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    apraksts_lv: Pārtikas un bezalkoholisko dzērienu cenu pārmaiņas 12 mēnešu laikā.
+    apraksts_en: Change in prices of food and non-alcoholic drinks over 12 months.
+
+  - id: majoklu_cenas
+    kategorija: cenas
+    lv: Mājokļu cenas
+    en: House prices
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: prc_hpi_q
+    filtri: {purchase: TOTAL, unit: RCH_A}
+    izmainas: pp
+    labi: 0
+    decimales: 1
+    apraksts_lv: Mājokļu cenu indeksa pārmaiņas pret to pašu ceturksni pirms gada (jauni un esošie mājokļi).
+    apraksts_en: Change in the house price index compared with the same quarter a year earlier (new and existing dwellings).
+
+  # ---------------- Darba tirgus ----------------
+  - id: bezdarbs
+    kategorija: darbs
+    lv: Bezdarba līmenis
+    en: Unemployment rate
+    vieniba_lv: "% no darbaspēka"
+    vieniba_en: "% of labour force"
+    datu_kopa: une_rt_m
+    filtri: {s_adj: SA, age: TOTAL, sex: T, unit: PC_ACT}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    galvenais: true
+    apraksts_lv: Bezdarbnieku daļa darbaspējīgo, darbu meklējošo iedzīvotāju vidū. Sezonāli izlīdzināti dati.
+    apraksts_en: Share of the labour force that is unemployed and looking for work. Seasonally adjusted.
+
+  - id: jauniesu_bezdarbs
+    kategorija: darbs
+    lv: Jauniešu bezdarbs (līdz 25 g.)
+    en: Youth unemployment (under 25)
+    vieniba_lv: "% no darbaspēka"
+    vieniba_en: "% of labour force"
+    datu_kopa: une_rt_m
+    filtri: {s_adj: SA, age: Y_LT25, sex: T, unit: PC_ACT}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    apraksts_lv: Bezdarba līmenis jauniešiem līdz 25 gadu vecumam.
+    apraksts_en: Unemployment rate for young people under 25.
+
+  - id: nodarbinatiba
+    kategorija: darbs
+    lv: Nodarbinātības līmenis (20–64 g.)
+    en: Employment rate (age 20–64)
+    vieniba_lv: "% no iedzīvotājiem"
+    vieniba_en: "% of population"
+    datu_kopa: lfsi_emp_q
+    filtri: {indic_em: EMP_LFS, s_adj: SA, sex: T, age: Y20-64, unit: PC_POP}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Cik daudz 20–64 gadus veco iedzīvotāju strādā. ES mērķis 2030. gadam ir 78 %.
+    apraksts_en: Share of people aged 20–64 who are in work. The EU's 2030 target is 78%.
+
+  # ---------------- Algas un ienākumi ----------------
+  - id: algu_pieaugums
+    kategorija: ienakumi
+    lv: Algu pieaugums
+    en: Wage growth
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: lc_lci_r2_q
+    filtri: {unit: PCH_SM, s_adj: CA, lcstruct: D11, nace_r2: B-S}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    galvenais: true
+    apraksts_lv: Algu izmaksu indekss — stundas algas (bez darba devēja nodokļiem) pārmaiņas pret to pašu ceturksni pirms gada. Visa ekonomika, izņemot mājsaimniecības.
+    apraksts_en: Labour cost index, wages and salaries per hour — change on the same quarter a year earlier. Whole economy except households.
+
+  - id: atlidziba
+    kategorija: ienakumi
+    lv: Atlīdzība uz vienu nodarbināto
+    en: Compensation per employee
+    vieniba_lv: EUR gadā
+    vieniba_en: EUR per year
+    datu_kopa: nama_10_lp_ulc
+    filtri: {unit: EUR, na_item: D1_SAL_PER}
+    izmainas: pct
+    labi: 1
+    decimales: 0
+    apraksts_lv: Vidējās darba devēja izmaksas par vienu darbinieku gadā (alga + sociālās iemaksas).
+    apraksts_en: Average yearly cost of one employee to the employer (wages plus social contributions).
+
+  - id: neto_ienakumi
+    kategorija: ienakumi
+    lv: Neto alga (vidējā, pēc pirktspējas)
+    en: Net average wage (purchasing power)
+    vieniba_lv: PPS gadā
+    vieniba_en: PPS per year
+    datu_kopa: earn_nt_netft
+    filtri: {statinfo: VAL_A, unit: PPS}
+    izmainas: pct
+    labi: 1
+    decimales: 0
+    apraksts_lv: Gada neto ienākumi strādājošam bez bērniem ar vidējo algu, pārrēķināti pirktspējas standartā (PPS), lai valstis būtu salīdzināmas.
+    apraksts_en: Yearly net earnings of a full-time single worker without children on an average wage, in purchasing power standards so countries can be compared.
+
+  - id: minimala_alga
+    kategorija: ienakumi
+    lv: Minimālā alga
+    en: Minimum wage
+    vieniba_lv: EUR mēnesī
+    vieniba_en: EUR per month
+    datu_kopa: earn_mw_cur
+    filtri: {currency: EUR}
+    izmainas: pct
+    labi: 1
+    decimales: 0
+    apraksts_lv: Valstī noteiktā minimālā mēneša bruto alga (dati par katru pusgadu).
+    apraksts_en: Statutory monthly minimum gross wage (half-yearly data).
+
+  - id: nabadziba
+    kategorija: ienakumi
+    lv: Nabadzības riska līmenis
+    en: At-risk-of-poverty rate
+    vieniba_lv: "% iedzīvotāju"
+    vieniba_en: "% of population"
+    datu_kopa: ilc_li02
+    filtri: {unit: PC, rskpovth: B_60, sex: T, age: TOTAL, statinfo: MED_EI}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    apraksts_lv: Iedzīvotāju daļa, kuru ienākumi ir zem 60 % no valsts mediānas ienākumiem.
+    apraksts_en: Share of people whose income is below 60% of the national median.
+
+  - id: gini
+    kategorija: ienakumi
+    lv: Ienākumu nevienlīdzība (Džini)
+    en: Income inequality (Gini)
+    vieniba_lv: 0–100
+    vieniba_en: 0–100
+    datu_kopa: ilc_di12
+    filtri: {age: TOTAL, statinfo: GINI_HND}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    apraksts_lv: Džini koeficients rīcībā esošajiem ienākumiem. 0 = visiem vienādi ienākumi, 100 = visi ienākumi vienam cilvēkam.
+    apraksts_en: Gini coefficient of disposable income. 0 = everyone has the same income, 100 = one person has everything.
+
+  # ---------------- Valsts finanses ----------------
+  - id: valsts_parads
+    kategorija: finanses
+    lv: Valsts parāds
+    en: Government debt
+    vieniba_lv: "% no IKP"
+    vieniba_en: "% of GDP"
+    datu_kopa: gov_10q_ggdebt
+    filtri: {na_item: GD, sector: S13, unit: PC_GDP}
+    izmainas: pp
+    labi: -1
+    decimales: 1
+    apraksts_lv: Vispārējās valdības konsolidētais bruto parāds ceturkšņa beigās. Māstrihtas kritērijs — ne vairāk kā 60 %.
+    apraksts_en: General government consolidated gross debt at the end of the quarter. The Maastricht limit is 60%.
+
+  - id: budzeta_bilance
+    kategorija: finanses
+    lv: Budžeta bilance
+    en: Budget balance
+    vieniba_lv: "% no IKP"
+    vieniba_en: "% of GDP"
+    datu_kopa: gov_10dd_edpt1
+    filtri: {na_item: B9, sector: S13, unit: PC_GDP}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Valdības ieņēmumi mīnus izdevumi. Negatīvs skaitlis = deficīts. Māstrihtas kritērijs — deficīts ne lielāks par 3 %.
+    apraksts_en: Government revenue minus spending. Negative = deficit. The Maastricht limit is a 3% deficit.
+
+  - id: obligaciju_ienesigums
+    kategorija: finanses
+    lv: 10 gadu valsts obligāciju ienesīgums
+    en: 10-year government bond yield
+    vieniba_lv: "% gadā"
+    vieniba_en: "% per year"
+    datu_kopa: irt_lt_mcby_m
+    filtri: {int_rt: MCBY}
+    izmainas: pp
+    labi: -1
+    decimales: 2
+    apraksts_lv: Ilgtermiņa procentu likme, par kādu valsts aizņemas (Māstrihtas konverģences kritērija sērija).
+    apraksts_en: Long-term interest rate at which the government borrows (EMU convergence criterion series).
+
+  # ---------------- Ārējā ekonomika ----------------
+  - id: tekosais_konts
+    kategorija: arejie
+    lv: Tekošā konta bilance
+    en: Current account balance
+    vieniba_lv: "% no IKP"
+    vieniba_en: "% of GDP"
+    datu_kopa: tipsbp20
+    filtri: {unit: PC_GDP, bop_item: CA, sector10: S1, sectpart: S1, stk_flow: BAL, partner: WRL_REST, s_adj: NSA}
+    izmainas: pp
+    labi: 0
+    decimales: 1
+    apraksts_lv: Preču, pakalpojumu un ienākumu plūsmu ar ārvalstīm saldo. Negatīvs = valsts vairāk importē un maksā ārvalstīm nekā saņem.
+    apraksts_en: Balance of trade in goods and services and income flows with the rest of the world. Negative = the country spends more abroad than it earns.
+
+  - id: eksports
+    kategorija: arejie
+    lv: Eksports
+    en: Exports
+    vieniba_lv: "% no IKP"
+    vieniba_en: "% of GDP"
+    datu_kopa: nama_10_gdp
+    filtri: {unit: PC_GDP, na_item: P6}
+    izmainas: pp
+    labi: 0
+    decimales: 1
+    apraksts_lv: Preču un pakalpojumu eksports kā daļa no IKP — rāda, cik atvērta ir ekonomika.
+    apraksts_en: Exports of goods and services as a share of GDP — shows how open the economy is.
+
+  # ---------------- Uzņēmējdarbība ----------------
+  - id: rupnieciba
+    kategorija: bizness
+    lv: Rūpniecības produkcija
+    en: Industrial production
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: sts_inpr_m
+    filtri: {indic_bt: PRD, nace_r2: B-D, s_adj: CA, unit: PCH_SM}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Rūpniecības (ieguve, apstrāde, enerģētika) produkcijas apjoma pārmaiņas pret to pašu mēnesi pirms gada.
+    apraksts_en: Change in the volume of industrial output (mining, manufacturing, energy) on the same month a year earlier.
+
+  - id: mazumtirdznieciba
+    kategorija: bizness
+    lv: Mazumtirdzniecības apjoms
+    en: Retail sales volume
+    vieniba_lv: "% gada laikā"
+    vieniba_en: "% year on year"
+    datu_kopa: sts_trtu_m
+    filtri: {indic_bt: VOL_SLS, nace_r2: G47, s_adj: CA, unit: PCH_SM}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Mazumtirdzniecības apgrozījuma apjoma (bez cenu ietekmes) pārmaiņas pret to pašu mēnesi pirms gada.
+    apraksts_en: Change in the volume of retail sales (excluding price effects) on the same month a year earlier.
+
+  - id: noskanojums
+    kategorija: bizness
+    lv: Ekonomikas noskaņojuma rādītājs
+    en: Economic sentiment indicator
+    vieniba_lv: ilgtermiņa vidējais = 100
+    vieniba_en: long-term average = 100
+    datu_kopa: ei_bssi_m_r2
+    filtri: {indic: BS-ESI-I, s_adj: SA}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Apvieno uzņēmēju un patērētāju aptaujas. Virs 100 — noskaņojums labāks nekā parasti.
+    apraksts_en: Combines business and consumer surveys. Above 100 = more optimistic than usual.
+
+  - id: pateretaju_konfidence
+    kategorija: bizness
+    lv: Patērētāju konfidence
+    en: Consumer confidence
+    vieniba_lv: bilance
+    vieniba_en: balance
+    datu_kopa: ei_bssi_m_r2
+    filtri: {indic: BS-CSMCI-BAL, s_adj: SA}
+    izmainas: pp
+    labi: 1
+    decimales: 1
+    apraksts_lv: Pozitīvo un negatīvo atbilžu starpība patērētāju aptaujā (par finanšu stāvokli, ekonomiku, lieliem pirkumiem).
+    apraksts_en: Difference between positive and negative answers in the consumer survey (finances, economy, big purchases).
+
+  # ---------------- Iedzīvotāji ----------------
+  - id: iedzivotaji
+    kategorija: iedzivotaji
+    lv: Iedzīvotāju skaits
+    en: Population
+    vieniba_lv: cilvēki (1. janvārī)
+    vieniba_en: people (1 January)
+    datu_kopa: demo_gind
+    filtri: {indic_de: JAN}
+    izmainas: pct
+    labi: 0
+    decimales: 0
+    apraksts_lv: Iedzīvotāju skaits gada sākumā.
+    apraksts_en: Population at the start of the year.
+
+  - id: migracija
+    kategorija: iedzivotaji
+    lv: Neto migrācija
+    en: Net migration
+    vieniba_lv: uz 1000 iedzīvotājiem
+    vieniba_en: per 1,000 people
+    datu_kopa: demo_gind
+    filtri: {indic_de: CNMIGRATRT}
+    izmainas: pp
+    labi: 0
+    decimales: 1
+    apraksts_lv: Iebraukušo mīnus izbraukušo skaits uz 1000 iedzīvotājiem (ar statistisko korekciju). Negatīvs = vairāk aizbrauc.
+    apraksts_en: Immigrants minus emigrants per 1,000 people (including statistical adjustment). Negative = more people leave.
+
+  - id: dzimstiba
+    kategorija: iedzivotaji
+    lv: Dzimstība
+    en: Birth rate
+    vieniba_lv: uz 1000 iedzīvotājiem
+    vieniba_en: per 1,000 people
+    datu_kopa: demo_gind
+    filtri: {indic_de: GBIRTHRT}
+    izmainas: pp
+    labi: 0
+    decimales: 1
+    apraksts_lv: Dzīvi dzimušo skaits gadā uz 1000 iedzīvotājiem.
+    apraksts_en: Live births per year per 1,000 people.
