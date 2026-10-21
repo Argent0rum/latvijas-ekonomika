@@ -1,0 +1,322 @@
+{
+ "generets": "2026-10-21 21:02 UTC",
+ "raditaji": [
+  {
+   "id": "ikp_pieaugums_cet",
+   "ok": true,
+   "punkti": 424,
+   "jaunakais": {
+    "EE": "2026-Q2",
+    "EU27_2020": "2026-Q2",
+    "LT": "2026-Q2",
+    "LV": "2026-Q2"
+   }
+  },
+  {
+   "id": "ikp_pieaugums_gads",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "ikp_milj",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "ikp_uz_iedz",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "ikp_pps_es",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "inflacija",
+   "ok": true,
+   "punkti": 1273,
+   "jaunakais": {
+    "EE": "2026-09",
+    "EU27_2020": "2026-09",
+    "LT": "2026-09",
+    "LV": "2026-09"
+   }
+  },
+  {
+   "id": "partikas_cenas",
+   "ok": true,
+   "punkti": 1273,
+   "jaunakais": {
+    "EE": "2026-09",
+    "EU27_2020": "2026-09",
+    "LT": "2026-09",
+    "LV": "2026-09"
+   }
+  },
+  {
+   "id": "majoklu_cenas",
+   "ok": true,
+   "punkti": 320,
+   "jaunakais": {
+    "EE": "2026-Q2",
+    "EU27_2020": "2026-Q2",
+    "LT": "2026-Q2",
+    "LV": "2026-Q2"
+   }
+  },
+  {
+   "id": "bezdarbs",
+   "ok": true,
+   "punkti": 1279,
+   "jaunakais": {
+    "EE": "2026-08",
+    "EU27_2020": "2026-08",
+    "LT": "2026-08",
+    "LV": "2026-08"
+   }
+  },
+  {
+   "id": "jauniesu_bezdarbs",
+   "ok": true,
+   "punkti": 1279,
+   "jaunakais": {
+    "EE": "2026-08",
+    "EU27_2020": "2026-08",
+    "LT": "2026-08",
+    "LV": "2026-08"
+   }
+  },
+  {
+   "id": "nodarbinatiba",
+   "ok": true,
+   "punkti": 280,
+   "jaunakais": {
+    "EE": "2026-Q2",
+    "EU27_2020": "2026-Q2",
+    "LT": "2026-Q2",
+    "LV": "2026-Q2"
+   }
+  },
+  {
+   "id": "algu_pieaugums",
+   "ok": true,
+   "punkti": 368,
+   "jaunakais": {
+    "EE": "2026-Q2",
+    "EU27_2020": "2026-Q2",
+    "LT": "2026-Q2",
+    "LV": "2026-Q2"
+   }
+  },
+  {
+   "id": "atlidziba",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "neto_ienakumi",
+   "ok": true,
+   "punkti": 91,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "minimala_alga",
+   "ok": true,
+   "punkti": 162,
+   "jaunakais": {
+    "EE": "2026-S2",
+    "LT": "2026-S2",
+    "LV": "2026-S2"
+   }
+  },
+  {
+   "id": "nabadziba",
+   "ok": true,
+   "punkti": 83,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "gini",
+   "ok": true,
+   "punkti": 48,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "valsts_parads",
+   "ok": true,
+   "punkti": 424,
+   "jaunakais": {
+    "EE": "2026-Q2",
+    "EU27_2020": "2026-Q2",
+    "LT": "2026-Q2",
+    "LV": "2026-Q2"
+   }
+  },
+  {
+   "id": "budzeta_bilance",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "obligaciju_ienesigums",
+   "ok": true,
+   "punkti": 1003,
+   "jaunakais": {
+    "EE": "2026-09",
+    "EU27_2020": "2026-09",
+    "LT": "2026-09",
+    "LV": "2026-09"
+   }
+  },
+  {
+   "id": "tekosais_konts",
+   "ok": true,
+   "punkti": 78,
+   "jaunakais": {
+    "EE": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "eksports",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "rupnieciba",
+   "ok": true,
+   "punkti": 1256,
+   "jaunakais": {
+    "EE": "2026-08",
+    "EU27_2020": "2026-08",
+    "LT": "2026-08",
+    "LV": "2026-08"
+   }
+  },
+  {
+   "id": "mazumtirdznieciba",
+   "ok": true,
+   "punkti": 1256,
+   "jaunakais": {
+    "EE": "2026-08",
+    "EU27_2020": "2026-08",
+    "LT": "2026-08",
+    "LV": "2026-08"
+   }
+  },
+  {
+   "id": "noskanojums",
+   "ok": true,
+   "punkti": 1279,
+   "jaunakais": {
+    "EE": "2026-04",
+    "EU27_2020": "2026-09",
+    "LT": "2026-09",
+    "LV": "2026-09"
+   }
+  },
+  {
+   "id": "pateretaju_konfidence",
+   "ok": true,
+   "punkti": 1250,
+   "jaunakais": {
+    "EE": "2026-04",
+    "EU27_2020": "2026-09",
+    "LT": "2026-09",
+    "LV": "2026-09"
+   }
+  },
+  {
+   "id": "iedzivotaji",
+   "ok": true,
+   "punkti": 108,
+   "jaunakais": {
+    "EE": "2026",
+    "EU27_2020": "2026",
+    "LT": "2026",
+    "LV": "2026"
+   }
+  },
+  {
+   "id": "migracija",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  },
+  {
+   "id": "dzimstiba",
+   "ok": true,
+   "punkti": 104,
+   "jaunakais": {
+    "EE": "2025",
+    "EU27_2020": "2025",
+    "LT": "2025",
+    "LV": "2025"
+   }
+  }
+ ]
+}
