@@ -1,0 +1,22 @@
+# Maintenance helper: Actions → "Izpētīt Eurostat datu kopas" → Run workflow, enter dataset codes.
+# Prints each dataset's dimensions and codes in the log (useful when adding a new indicator).
+name: Izpētīt Eurostat datu kopas
+
+on:
+  workflow_dispatch:
+    inputs:
+      datasets:
+        description: "Eurostat dataset codes, separated by spaces"
+        required: true
+        default: "une_rt_m"
+
+jobs:
+  izpete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python scripts/izpete.py ${{ github.event.inputs.datasets }}
