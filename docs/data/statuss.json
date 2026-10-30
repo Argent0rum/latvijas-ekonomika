@@ -1,5 +1,5 @@
 {
- "generets": "2026-10-29 06:01 UTC",
+ "generets": "2026-10-30 06:01 UTC",
  "raditaji": [
   {
    "id": "ikp_pieaugums_cet",
@@ -255,34 +255,34 @@
   {
    "id": "mazumtirdznieciba",
    "ok": true,
-   "punkti": 1257,
+   "punkti": 1258,
    "jaunakais": {
     "EE": "2026-08",
     "EU27_2020": "2026-08",
     "LT": "2026-09",
-    "LV": "2026-08"
+    "LV": "2026-09"
    }
   },
   {
    "id": "noskanojums",
    "ok": true,
-   "punkti": 1279,
+   "punkti": 1282,
    "jaunakais": {
     "EE": "2026-04",
-    "EU27_2020": "2026-09",
-    "LT": "2026-09",
-    "LV": "2026-09"
+    "EU27_2020": "2026-10",
+    "LT": "2026-10",
+    "LV": "2026-10"
    }
   },
   {
    "id": "pateretaju_konfidence",
    "ok": true,
-   "punkti": 1250,
+   "punkti": 1253,
    "jaunakais": {
     "EE": "2026-04",
-    "EU27_2020": "2026-09",
-    "LT": "2026-09",
-    "LV": "2026-09"
+    "EU27_2020": "2026-10",
+    "LT": "2026-10",
+    "LV": "2026-10"
    }
   },
   {
