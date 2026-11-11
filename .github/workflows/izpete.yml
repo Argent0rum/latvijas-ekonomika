@@ -22,9 +22,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - run: |
+      - env:
+          DATASETS: ${{ github.event.inputs.datasets }}   # passed as data, never pasted into the command
+        run: |
           mkdir -p izpete
-          python scripts/izpete.py ${{ github.event.inputs.datasets }} | tee izpete/rezultats.txt
+          python scripts/izpete.py $DATASETS | tee izpete/rezultats.txt
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
