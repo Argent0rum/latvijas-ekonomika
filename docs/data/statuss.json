@@ -1,5 +1,5 @@
 {
- "generets": "2026-11-12 06:20 UTC",
+ "generets": "2026-11-13 06:18 UTC",
  "raditaji": [
   {
    "id": "ikp_pieaugums_cet",
@@ -212,12 +212,12 @@
   {
    "id": "obligaciju_ienesigums",
    "ok": true,
-   "punkti": 1003,
+   "punkti": 1007,
    "jaunakais": {
-    "EE": "2026-09",
-    "EU27_2020": "2026-09",
-    "LT": "2026-09",
-    "LV": "2026-09"
+    "EE": "2026-10",
+    "EU27_2020": "2026-10",
+    "LT": "2026-10",
+    "LV": "2026-10"
    }
   },
   {
