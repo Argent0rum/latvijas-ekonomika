@@ -1,5 +1,5 @@
 {
- "generets": "2026-11-19 06:20 UTC",
+ "generets": "2026-11-20 06:22 UTC",
  "raditaji": [
   {
    "id": "ikp_pieaugums_cet",
@@ -125,10 +125,10 @@
   {
    "id": "algu_pieaugums",
    "ok": true,
-   "punkti": 368,
+   "punkti": 369,
    "jaunakais": {
     "EE": "2026-Q2",
-    "EU27_2020": "2026-Q2",
+    "EU27_2020": "2026-Q3",
     "LT": "2026-Q2",
     "LV": "2026-Q2"
    }
