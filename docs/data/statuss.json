@@ -1,5 +1,5 @@
 {
- "generets": "2026-11-24 15:58 UTC",
+ "generets": "2026-11-25 15:45 UTC",
  "raditaji": [
   {
    "id": "ikp_pieaugums_cet",
@@ -255,12 +255,12 @@
   {
    "id": "mazumtirdznieciba",
    "ok": true,
-   "punkti": 1260,
+   "punkti": 1261,
    "jaunakais": {
     "EE": "2026-09",
     "EU27_2020": "2026-09",
     "LT": "2026-09",
-    "LV": "2026-09"
+    "LV": "2026-10"
    }
   },
   {
